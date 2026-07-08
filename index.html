@@ -3,32 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Birthday Invitation Victoria</title>
+  <title>Undangan Ulang Tahun Victoria</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <section class="hero">
-    <p class="label">You are invited to</p>
-    <h1>Victoria's 1st Birthday</h1>
-    <p class="subtitle">A sweet little princess celebration</p>
+  <!-- COVER AWAL -->
+  <section id="cover" class="cover">
+    <div class="cover-overlay"></div>
 
-    <div class="card">
-      <p><strong>Hari/Tanggal:</strong> Minggu, 10 Agustus 2026</p>
-      <p><strong>Waktu:</strong> 15.00 WIB</p>
-      <p><strong>Tempat:</strong> Akan diisi nanti</p>
+    <!-- dekorasi -->
+    <div class="stars star-1">✦</div>
+    <div class="stars star-2">✦</div>
+    <div class="stars star-3">✦</div>
+    <div class="stars star-4">✦</div>
+
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <div class="cover-content">
+      <p class="mini-text">You Are Invited To</p>
+      <h1>Victoria’s 1st Birthday</h1>
+      <p class="subtitle">A sweet little princess celebration</p>
+      <button id="openInvitation" class="open-btn">Buka Undangan</button>
     </div>
-
-    <a class="button" href="#rsvp">Konfirmasi Kehadiran</a>
   </section>
 
-  <section id="rsvp" class="section">
-    <h2>RSVP</h2>
-    <p>Mohon konfirmasi kehadiran melalui WhatsApp.</p>
-    <a class="button" href="https://wa.me/6281234567890" target="_blank">
-      RSVP via WhatsApp
-    </a>
-  </section>
+  <!-- ISI UNDANGAN -->
+  <main id="invitationContent" class="hidden">
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-image">
+          <img src="assets/cover-victoria.jpg" alt="Victoria" />
+        </div>
+        <div class="hero-text">
+          <p class="section-label">Birthday Invitation</p>
+          <h2>Victoria Quinn Elouera</h2>
+          <p class="hero-desc">
+            Dengan penuh sukacita, kami mengundang Bapak/Ibu/Saudara/i
+            untuk hadir dalam perayaan ulang tahun pertama putri kami tercinta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-section">
+      <div class="section-title">
+        <h3>Detail Acara</h3>
+        <p>We would be delighted to celebrate with you</p>
+      </div>
+
+      <div class="details-grid">
+        <div class="detail-box">
+          <h4>Hari & Tanggal</h4>
+          <p>Minggu, 10 Agustus 2026</p>
+        </div>
+        <div class="detail-box">
+          <h4>Waktu</h4>
+          <p>15.00 WIB</p>
+        </div>
+        <div class="detail-box">
+          <h4>Tempat</h4>
+          <p>Akan diisi nanti</p>
+        </div>
+        <div class="detail-box">
+          <h4>Dress Code</h4>
+          <p>Nuansa Pink / Pastel</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="message-section">
+      <div class="message-card">
+        <h3>Pesan</h3>
+        <p>
+          Kehadiran dan doa terbaik dari Bapak/Ibu/Saudara/i akan menjadi
+          kebahagiaan yang sangat berarti bagi keluarga kami.
+        </p>
+      </div>
+    </section>
+
+    <section class="rsvp-section">
+      <h3>Konfirmasi Kehadiran</h3>
+      <p>Mohon konfirmasi kehadiran melalui WhatsApp</p>
+      <a href="https://wa.me/6281234567890" target="_blank" class="rsvp-btn">
+        RSVP Sekarang
+      </a>
+    </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
