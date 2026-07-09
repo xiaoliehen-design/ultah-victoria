@@ -2817,6 +2817,33 @@
       }
     }
 
+
+
+    /* =========================
+       COVER PHOTO DESKTOP FIX
+       Desktop: show the full cover photo without cropping.
+       Mobile: keep the previous smartphone layout/position.
+    ========================= */
+    @media (min-width: 921px) {
+      .cover {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+
+      .cover-photo-side {
+        background:
+          linear-gradient(rgba(255,255,255,0.04), rgba(255,244,249,0.08)),
+          url("./assets/images/victoria-cover1.jpg") center center / contain no-repeat,
+          linear-gradient(180deg, #fff8fb 0%, #fff1f7 100%);
+      }
+    }
+
+    @media (max-width: 920px) {
+      .cover-photo-side {
+        background-size: cover;
+        background-position: center top;
+      }
+    }
+
   </style>
 </head>
 <body>
