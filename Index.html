@@ -6124,7 +6124,805 @@
       }
     }
 
+
+
+    /* =========================================================
+       ARCH SHAPES + OVERLAY UNICORNS + SWEET MOMENTS CAROUSEL
+       Final revision: no dedicated unicorn space.
+    ========================================================= */
+
+    /* Remove old decorative gutters that consumed usable content space. */
+    .section-gutter-decor,
+    .gallery-side-decor {
+      display: none !important;
+    }
+
+    /* Restore balanced content padding: unicorns now float as overlays. */
+    .section-card.unicorn-bottom-space,
+    .section-card.unicorn-bottom-space:not(.hero-luxe-card):not(.opening-section-card):not(.gallery-section-card),
+    .hero-luxe-card,
+    .opening-section-card,
+    .gallery-section-card {
+      padding: 58px 48px !important;
+      min-height: 0 !important;
+    }
+
+    .gallery-section-card {
+      padding-bottom: 58px !important;
+    }
+
+    /* Raised, non-rectangular section silhouettes. */
+    .shape-card {
+      overflow: hidden;
+      border: 1px solid rgba(216, 182, 110, 0.42) !important;
+      box-shadow:
+        0 30px 78px rgba(143, 72, 103, 0.15),
+        0 10px 24px rgba(232, 169, 199, 0.09),
+        inset 0 1px 0 rgba(255,255,255,0.96) !important;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .shape-card.reveal.show:hover {
+      transform: translateY(-6px) scale(1.002);
+      box-shadow:
+        0 38px 88px rgba(143, 72, 103, 0.18),
+        0 14px 30px rgba(232, 169, 199, 0.11),
+        inset 0 1px 0 rgba(255,255,255,0.98) !important;
+    }
+
+    .shape-royal-arch { border-radius: 128px 128px 46px 46px !important; }
+    .shape-soft-wave { border-radius: 48px 126px 48px 126px !important; }
+    .shape-countdown { border-radius: 116px 116px 38px 38px !important; }
+    .shape-details { border-radius: 42px 112px 42px 112px !important; }
+    .shape-love { border-radius: 118px 42px 118px 42px !important; }
+    .shape-gallery { border-radius: 58px 132px 58px 132px !important; }
+    .shape-wishes { border-radius: 124px 124px 44px 44px !important; }
+    .shape-rsvp { border-radius: 136px 136px 48px 48px !important; }
+
+    /* Inner cards use arches, pebbles, and asymmetric shapes. */
+    .shape-countdown .countdown-wrap {
+      border-radius: 86px 86px 30px 30px !important;
+      box-shadow: 0 22px 44px rgba(143,72,103,.10), inset 0 1px 0 rgba(255,255,255,.92);
+      padding: 44px 28px 30px !important;
+    }
+
+    .shape-countdown .time-box {
+      border-radius: 58px 58px 24px 24px !important;
+      box-shadow: 0 16px 30px rgba(143,72,103,.09), inset 0 1px 0 rgba(255,255,255,.94);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .shape-countdown .time-box:nth-child(2) { border-radius: 28px 64px 28px 64px !important; }
+    .shape-countdown .time-box:nth-child(3) { border-radius: 64px 28px 64px 28px !important; }
+    .shape-countdown .time-box:nth-child(4) { border-radius: 58px 58px 24px 24px !important; }
+    .shape-countdown .time-box:hover { transform: translateY(-5px); box-shadow: 0 22px 38px rgba(143,72,103,.13); }
+
+    .shape-details .details-shell {
+      border-radius: 92px 92px 34px 34px !important;
+      padding: 34px 28px 28px !important;
+      box-shadow: 0 22px 44px rgba(143,72,103,.09), inset 0 1px 0 rgba(255,255,255,.94);
+    }
+
+    .shape-details .detail-card:nth-child(1) { border-radius: 70px 70px 28px 28px !important; }
+    .shape-details .detail-card:nth-child(2) { border-radius: 30px 72px 30px 72px !important; }
+    .shape-details .detail-card:nth-child(3) { border-radius: 72px 30px 72px 30px !important; }
+    .shape-details .detail-card:nth-child(4) { border-radius: 28px 28px 72px 72px !important; }
+
+    .shape-love .message-box {
+      border-radius: 92px 32px 92px 32px !important;
+      padding: 42px 48px !important;
+      box-shadow: 0 22px 46px rgba(143,72,103,.10), inset 0 1px 0 rgba(255,255,255,.94);
+    }
+
+    .shape-gallery .gallery-shell {
+      border-radius: 96px 34px 96px 34px !important;
+      padding: 30px 26px 28px !important;
+      box-shadow: 0 22px 48px rgba(143,72,103,.10), inset 0 1px 0 rgba(255,255,255,.95);
+    }
+
+    .shape-wishes .wishes-shell {
+      border-radius: 96px 96px 34px 34px !important;
+      padding: 34px 30px 30px !important;
+      box-shadow: 0 22px 46px rgba(143,72,103,.10), inset 0 1px 0 rgba(255,255,255,.94);
+    }
+
+    .shape-wishes .wish-field input { border-radius: 999px !important; }
+    .shape-wishes .wish-field textarea { border-radius: 34px 34px 34px 12px !important; }
+    .shape-wishes .wish-card:nth-child(4n+1) { border-radius: 54px 22px 54px 22px !important; }
+    .shape-wishes .wish-card:nth-child(4n+2) { border-radius: 22px 54px 22px 54px !important; }
+    .shape-wishes .wish-card:nth-child(4n+3) { border-radius: 58px 58px 24px 24px !important; }
+    .shape-wishes .wish-card:nth-child(4n) { border-radius: 24px 24px 58px 58px !important; }
+
+    .shape-rsvp .rsvp-card {
+      border-radius: 112px 112px 38px 38px !important;
+      box-shadow: 0 28px 58px rgba(143,72,103,.20), inset 0 1px 0 rgba(255,255,255,.28);
+    }
+
+    .detail-card,
+    .message-box,
+    .wish-card,
+    .time-box,
+    .gallery-item {
+      transform: translateZ(0);
+    }
+
+    .detail-card:active,
+    .message-box:active,
+    .wish-card:active,
+    .time-box:active,
+    .gallery-item:active {
+      transform: translateY(-3px) scale(.995) !important;
+    }
+
+    /* Unicorn assets are overlays, never layout blocks. */
+    .shape-card > .unique-section-unicorn,
+    .shape-card.hero-luxe-card > .unique-section-unicorn,
+    .shape-card.opening-section-card > .unique-section-unicorn,
+    .shape-card.gallery-section-card > .unique-section-unicorn {
+      position: absolute !important;
+      z-index: 9 !important;
+      width: 112px !important;
+      height: 112px !important;
+      min-width: 112px !important;
+      top: auto !important;
+      right: auto !important;
+      bottom: auto !important;
+      left: auto !important;
+      margin: 0 !important;
+      opacity: .96;
+      pointer-events: none !important;
+      border-radius: 42% 58% 48% 52% !important;
+      box-shadow:
+        inset 0 0 0 6px rgba(255,255,255,.34),
+        0 16px 30px rgba(143,72,103,.12),
+        0 0 34px rgba(232,169,199,.18) !important;
+    }
+
+    .shape-card > .unique-section-unicorn .asset-unicorn-img {
+      width: 98% !important;
+      height: 98% !important;
+    }
+
+    .shape-card > .unique-section-unicorn.unicorn-hero-overlay { left: 22px !important; top: 24px !important; width: 100px !important; height: 100px !important; min-width: 100px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-opening-overlay { right: 22px !important; top: 22px !important; width: 100px !important; height: 100px !important; min-width: 100px !important; }
+
+    /* Requested positions: beside subtitles/titles, without dedicated vertical space. */
+    .shape-card > .unique-section-unicorn.unicorn-countdown-overlay { left: 24px !important; top: 104px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-details-overlay { left: 24px !important; top: 100px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-love-overlay { right: 24px !important; top: 20px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-gallery-overlay { right: 24px !important; top: 24px !important; width: 104px !important; height: 104px !important; min-width: 104px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-wishes-overlay { right: 24px !important; top: 22px !important; }
+    .shape-card > .unique-section-unicorn.unicorn-rsvp-overlay { left: 22px !important; bottom: 20px !important; width: 98px !important; height: 98px !important; min-width: 98px !important; opacity: .88; }
+
+    /* Small horizontal clear zones only; no extra row/height is created. */
+    .shape-countdown .section-title p,
+    .shape-details .section-title p { padding-left: 112px; padding-right: 18px; }
+    .shape-love .section-title,
+    .shape-gallery .section-title,
+    .shape-wishes .section-title { padding-right: 104px; }
+    .shape-royal-arch .hero-content { padding-left: 74px; }
+    .shape-soft-wave .section-title { padding-right: 74px; }
+
+    /* SWEET MOMENTS: carousel track + tap/click lightbox. */
+    .moments-carousel {
+      position: relative;
+      z-index: 4;
+      padding: 4px 54px 42px;
+    }
+
+    .gallery-viewport {
+      position: relative;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      overscroll-behavior-x: contain;
+      padding: 10px 5px 20px;
+      border-radius: 76px 28px 76px 28px;
+      touch-action: pan-x;
+    }
+
+    .gallery-viewport::-webkit-scrollbar { display: none; }
+
+    .moments-carousel .gallery {
+      display: flex !important;
+      grid-template-columns: none !important;
+      gap: 18px !important;
+      width: 100%;
+      margin: 0 !important;
+      align-items: stretch;
+    }
+
+    .moments-carousel .gallery-item,
+    .moments-carousel .gallery-item:nth-child(2),
+    .moments-carousel .gallery-item:nth-child(5) {
+      flex: 0 0 calc((100% - 36px) / 3);
+      min-width: 0;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      animation: none !important;
+      transform: none !important;
+      padding: 12px 12px 16px !important;
+      border-radius: 76px 76px 26px 26px !important;
+      box-shadow: 0 18px 38px rgba(143,72,103,.11) !important;
+    }
+
+    .moments-carousel .gallery-item:nth-child(3n+2) { border-radius: 28px 78px 28px 78px !important; }
+    .moments-carousel .gallery-item:nth-child(3n) { border-radius: 78px 28px 78px 28px !important; }
+
+    .moments-carousel .gallery-item:hover {
+      transform: translateY(-7px) scale(1.012) !important;
+      box-shadow: 0 26px 48px rgba(143,72,103,.15) !important;
+    }
+
+    .moments-carousel .gallery-item img {
+      aspect-ratio: 4 / 5 !important;
+      border-radius: 60px 60px 18px 18px !important;
+      object-fit: cover;
+      cursor: zoom-in;
+    }
+
+    .moments-carousel .gallery-item:nth-child(3n+2) img { border-radius: 18px 62px 18px 62px !important; }
+    .moments-carousel .gallery-item:nth-child(3n) img { border-radius: 62px 18px 62px 18px !important; }
+
+    .carousel-nav {
+      position: absolute;
+      top: 47%;
+      z-index: 8;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(216,182,110,.48);
+      border-radius: 50%;
+      background: rgba(255,255,255,.94);
+      color: var(--pink-5);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(143,72,103,.14);
+      backdrop-filter: blur(8px);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    .carousel-nav:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 18px 34px rgba(143,72,103,.18); background: #fff; }
+    .carousel-nav:active { transform: scale(.95); }
+    .carousel-prev { left: 2px; }
+    .carousel-next { right: 2px; }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 18px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(184,103,141,.25);
+      cursor: pointer;
+      transition: width .25s ease, border-radius .25s ease, background .25s ease, transform .25s ease;
+    }
+
+    .carousel-dot.active {
+      width: 27px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--pink-3), var(--gold-2));
+      transform: scale(1.04);
+    }
+
+    .carousel-tap-hint {
+      display: block;
+      margin-top: 9px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    /* Lightbox appears like a premium pop-up arch. */
+    .photo-lightbox-inner { width: min(94vw, 1040px); }
+    .photo-lightbox-img {
+      border-radius: 88px 88px 30px 30px !important;
+      border: 2px solid rgba(255,255,255,.64) !important;
+      box-shadow: 0 34px 90px rgba(0,0,0,.38), 0 0 54px rgba(255,225,240,.18) !important;
+    }
+
+    @media (max-width: 980px) {
+      .section-card.unicorn-bottom-space,
+      .section-card.unicorn-bottom-space:not(.hero-luxe-card):not(.opening-section-card):not(.gallery-section-card),
+      .hero-luxe-card,
+      .opening-section-card,
+      .gallery-section-card {
+        padding: 50px 30px !important;
+      }
+
+      .shape-royal-arch { border-radius: 94px 94px 38px 38px !important; }
+      .shape-soft-wave { border-radius: 38px 92px 38px 92px !important; }
+      .shape-countdown { border-radius: 90px 90px 34px 34px !important; }
+      .shape-details { border-radius: 34px 86px 34px 86px !important; }
+      .shape-love { border-radius: 90px 34px 90px 34px !important; }
+      .shape-gallery { border-radius: 44px 100px 44px 100px !important; }
+      .shape-wishes { border-radius: 94px 94px 38px 38px !important; }
+      .shape-rsvp { border-radius: 100px 100px 40px 40px !important; }
+
+      .moments-carousel .gallery-item,
+      .moments-carousel .gallery-item:nth-child(2),
+      .moments-carousel .gallery-item:nth-child(5) {
+        flex-basis: calc((100% - 18px) / 2);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section-card.unicorn-bottom-space,
+      .section-card.unicorn-bottom-space:not(.hero-luxe-card):not(.opening-section-card):not(.gallery-section-card),
+      .hero-luxe-card,
+      .opening-section-card,
+      .gallery-section-card {
+        padding: 42px 17px !important;
+      }
+
+      .shape-card { box-shadow: 0 20px 48px rgba(143,72,103,.13), inset 0 1px 0 rgba(255,255,255,.94) !important; }
+      .shape-royal-arch { border-radius: 70px 70px 30px 30px !important; }
+      .shape-soft-wave { border-radius: 30px 70px 30px 70px !important; }
+      .shape-countdown { border-radius: 72px 72px 28px 28px !important; }
+      .shape-details { border-radius: 28px 68px 28px 68px !important; }
+      .shape-love { border-radius: 70px 28px 70px 28px !important; }
+      .shape-gallery { border-radius: 34px 76px 34px 76px !important; }
+      .shape-wishes { border-radius: 72px 72px 30px 30px !important; }
+      .shape-rsvp { border-radius: 78px 78px 32px 32px !important; }
+
+      .shape-countdown .countdown-wrap {
+        border-radius: 58px 58px 24px 24px !important;
+        padding: 34px 12px 20px !important;
+      }
+
+      .shape-countdown .time-box {
+        border-radius: 34px 34px 17px 17px !important;
+      }
+
+      .shape-details .details-shell {
+        border-radius: 60px 60px 26px 26px !important;
+        padding: 24px 12px 16px !important;
+      }
+
+      .shape-details .detail-card:nth-child(1) { border-radius: 44px 44px 20px 20px !important; }
+      .shape-details .detail-card:nth-child(2) { border-radius: 20px 46px 20px 46px !important; }
+      .shape-details .detail-card:nth-child(3) { border-radius: 46px 20px 46px 20px !important; }
+      .shape-details .detail-card:nth-child(4) { border-radius: 20px 20px 46px 46px !important; }
+
+      .shape-love .message-box {
+        border-radius: 58px 22px 58px 22px !important;
+        padding: 34px 22px !important;
+      }
+
+      .shape-gallery .gallery-shell {
+        border-radius: 64px 24px 64px 24px !important;
+        padding: 22px 8px 20px !important;
+      }
+
+      .shape-wishes .wishes-shell {
+        border-radius: 62px 62px 26px 26px !important;
+        padding: 26px 14px 18px !important;
+      }
+
+      .shape-rsvp .rsvp-card { border-radius: 72px 72px 28px 28px !important; }
+
+      .shape-card > .unique-section-unicorn,
+      .shape-card.hero-luxe-card > .unique-section-unicorn,
+      .shape-card.opening-section-card > .unique-section-unicorn,
+      .shape-card.gallery-section-card > .unique-section-unicorn {
+        width: 76px !important;
+        height: 76px !important;
+        min-width: 76px !important;
+        border-radius: 38% 62% 46% 54% !important;
+      }
+
+      .shape-card > .unique-section-unicorn.unicorn-hero-overlay { left: 10px !important; top: 14px !important; width: 70px !important; height: 70px !important; min-width: 70px !important; opacity: .82; }
+      .shape-card > .unique-section-unicorn.unicorn-opening-overlay { right: 10px !important; top: 12px !important; width: 70px !important; height: 70px !important; min-width: 70px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-countdown-overlay { left: 10px !important; top: 102px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-details-overlay { left: 10px !important; top: 98px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-love-overlay { right: 10px !important; top: 12px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-gallery-overlay { right: 10px !important; top: 14px !important; width: 72px !important; height: 72px !important; min-width: 72px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-wishes-overlay { right: 10px !important; top: 12px !important; }
+      .shape-card > .unique-section-unicorn.unicorn-rsvp-overlay { left: 8px !important; bottom: 8px !important; width: 66px !important; height: 66px !important; min-width: 66px !important; opacity: .74; }
+
+      .shape-countdown .section-title p,
+      .shape-details .section-title p { padding-left: 72px; padding-right: 4px; }
+      .shape-love .section-title,
+      .shape-gallery .section-title,
+      .shape-wishes .section-title { padding-right: 66px; }
+      .shape-royal-arch .hero-content { padding-left: 42px; }
+      .shape-soft-wave .section-title { padding-right: 48px; }
+
+      .moments-carousel { padding: 2px 42px 40px; }
+      .moments-carousel .gallery { gap: 12px !important; }
+      .moments-carousel .gallery-item,
+      .moments-carousel .gallery-item:nth-child(2),
+      .moments-carousel .gallery-item:nth-child(5) {
+        flex: 0 0 100%;
+        padding: 9px 9px 13px !important;
+        border-radius: 64px 64px 22px 22px !important;
+      }
+      .moments-carousel .gallery-item:nth-child(3n+2) { border-radius: 22px 66px 22px 66px !important; }
+      .moments-carousel .gallery-item:nth-child(3n) { border-radius: 66px 22px 66px 22px !important; }
+      .moments-carousel .gallery-item img { border-radius: 50px 50px 15px 15px !important; aspect-ratio: 4 / 5 !important; }
+      .moments-carousel .gallery-item:nth-child(3n+2) img { border-radius: 15px 52px 15px 52px !important; }
+      .moments-carousel .gallery-item:nth-child(3n) img { border-radius: 52px 15px 52px 15px !important; }
+
+      .carousel-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 23px;
+      }
+      .carousel-prev { left: 1px; }
+      .carousel-next { right: 1px; }
+      .carousel-tap-hint { font-size: 10px; letter-spacing: .035em; }
+
+      .photo-lightbox-img { border-radius: 54px 54px 22px 22px !important; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .shape-card.reveal.show:hover,
+      .moments-carousel .gallery-item:hover {
+        transform: none !important;
+      }
+    }
+
   </style>
+
+<style>
+  /* =========================================================
+     FINAL CENTERING + CUSTOM BACKGROUND + SCROLL REVEAL
+     + SEAMLESS INFINITE SWEET MOMENTS
+  ========================================================= */
+
+  /* Upload this exact file to: assets/images/background undangan.jpg */
+  #invitationContent {
+    position: relative;
+    isolation: isolate;
+    background-color: #fff7fb !important;
+    background-image:
+      linear-gradient(180deg, rgba(255,250,253,.80), rgba(255,244,250,.76)),
+      url("./assets/images/background undangan.jpg") !important;
+    background-position: center top !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+  }
+
+  /* A soft veil protects text readability when the uploaded background is busy. */
+  #invitationContent::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(255,255,255,.40), transparent 25%),
+      radial-gradient(circle at 88% 28%, rgba(255,235,246,.30), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,244,250,.16));
+  }
+
+  #invitationContent > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Every title and subtitle stays truly centered, without unicorn offset padding. */
+  #invitationContent .section-title,
+  #invitationContent .section-title h2,
+  #invitationContent .section-title p,
+  #invitationContent .hero-content,
+  #invitationContent .hero-title,
+  #invitationContent .hero-text,
+  #invitationContent .opening-title,
+  #invitationContent .opening-text,
+  #invitationContent .details-shell-head,
+  #invitationContent .gallery-shell-head,
+  #invitationContent .message-box,
+  #invitationContent .message-box h2,
+  #invitationContent .message-box p,
+  #invitationContent .wish-card,
+  #invitationContent .rsvp-inner,
+  #invitationContent .footer-card,
+  #invitationContent footer h2,
+  #invitationContent footer p {
+    text-align: center !important;
+  }
+
+  #invitationContent .section-title,
+  #invitationContent .shape-love .section-title,
+  #invitationContent .shape-gallery .section-title,
+  #invitationContent .shape-wishes .section-title,
+  #invitationContent .shape-soft-wave .section-title {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #invitationContent .section-title p,
+  #invitationContent .shape-countdown .section-title p,
+  #invitationContent .shape-details .section-title p,
+  #invitationContent .shape-royal-arch .hero-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #invitationContent .soft-line,
+  #invitationContent .ornament-badge,
+  #invitationContent .gallery-kicker,
+  #invitationContent .details-shell-kicker {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  #invitationContent .wish-card h3,
+  #invitationContent .wish-card p,
+  #invitationContent .wish-date {
+    text-align: center !important;
+  }
+
+  /* Keep form entry practical while all display text remains centered. */
+  #invitationContent .wish-form {
+    text-align: center !important;
+  }
+  #invitationContent .wish-field label,
+  #invitationContent .wish-field input,
+  #invitationContent .wish-field textarea {
+    text-align: left !important;
+  }
+
+  /* Scroll-reveal is activated only after Buka Undangan is pressed. */
+  #invitationContent .scroll-animate {
+    --reveal-delay: 0ms;
+    opacity: 0 !important;
+    filter: blur(4px);
+    transform: translate3d(0, 36px, 0) scale(.975) !important;
+    transition:
+      opacity .82s cubic-bezier(.2,.72,.2,1) var(--reveal-delay),
+      transform .92s cubic-bezier(.2,.72,.2,1) var(--reveal-delay),
+      filter .82s ease var(--reveal-delay) !important;
+    will-change: opacity, transform, filter;
+  }
+
+  #invitationContent .scroll-animate.reveal-from-left {
+    transform: translate3d(-42px, 16px, 0) scale(.98) !important;
+  }
+
+  #invitationContent .scroll-animate.reveal-from-right {
+    transform: translate3d(42px, 16px, 0) scale(.98) !important;
+  }
+
+  #invitationContent .scroll-animate.reveal-zoom {
+    transform: translate3d(0, 10px, 0) scale(.92) !important;
+  }
+
+  #invitationContent .scroll-animate.is-visible,
+  #invitationContent .scroll-animate.show {
+    opacity: 1 !important;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1) !important;
+  }
+
+  /* Unicorns remain overlays and never create dedicated space. */
+  #invitationContent .shape-card > .unique-section-unicorn {
+    z-index: 2 !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay {
+    left: 18px !important;
+    top: 118px !important;
+    width: 94px !important;
+    height: 94px !important;
+    min-width: 94px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay {
+    left: 18px !important;
+    top: 104px !important;
+    width: 92px !important;
+    height: 92px !important;
+    min-width: 92px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay {
+    right: 18px !important;
+    top: 16px !important;
+    width: 92px !important;
+    height: 92px !important;
+    min-width: 92px !important;
+  }
+
+  /* =========================================================
+     SWEET MOMENTS: seamless, caption-free, continuous marquee
+  ========================================================= */
+  #invitationContent .shape-gallery .gallery-shell {
+    padding: 20px 0 24px !important;
+    overflow: hidden !important;
+  }
+
+  #invitationContent .moments-carousel.seamless-moments {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    padding: 0 !important;
+    overflow: hidden;
+    border-radius: 74px 24px 74px 24px;
+    box-shadow: 0 20px 48px rgba(98,58,82,.15);
+  }
+
+  #invitationContent .seamless-moments .gallery-viewport {
+    width: 100%;
+    overflow: hidden !important;
+    padding: 0 !important;
+    border-radius: inherit !important;
+    touch-action: pan-y;
+    cursor: pointer;
+  }
+
+  #invitationContent .seamless-moments .gallery {
+    display: flex !important;
+    width: max-content !important;
+    min-width: max-content !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    align-items: stretch;
+    animation: victoriaMomentsMarquee 82s linear infinite !important;
+    will-change: transform;
+  }
+
+  #invitationContent .shape-gallery:not(.show) .seamless-moments .gallery,
+  #invitationContent .shape-gallery:not(.is-visible) .seamless-moments .gallery {
+    animation-play-state: paused !important;
+  }
+
+  #invitationContent .shape-gallery.show.is-visible .seamless-moments .gallery {
+    animation-play-state: running !important;
+  }
+
+  #invitationContent .seamless-moments .gallery-item,
+  #invitationContent .seamless-moments .gallery-item:nth-child(n) {
+    flex: 0 0 clamp(230px, 29vw, 360px) !important;
+    width: clamp(230px, 29vw, 360px) !important;
+    min-width: clamp(230px, 29vw, 360px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    scroll-snap-align: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  #invitationContent .seamless-moments .gallery-item::before,
+  #invitationContent .seamless-moments .gallery-item::after,
+  #invitationContent .seamless-moments .gallery-caption,
+  #invitationContent .seamless-moments .carousel-nav,
+  #invitationContent .seamless-moments .carousel-dots,
+  #invitationContent .seamless-moments .carousel-tap-hint {
+    display: none !important;
+  }
+
+  #invitationContent .seamless-moments .gallery-item img {
+    display: block;
+    width: 100% !important;
+    height: clamp(285px, 34vw, 430px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    box-shadow: none !important;
+    transition: filter .35s ease, transform .35s ease;
+  }
+
+  #invitationContent .seamless-moments .gallery-item:hover img {
+    filter: brightness(1.04) saturate(1.03);
+    transform: scale(1.018) !important;
+  }
+
+  .photo-lightbox-caption {
+    display: none !important;
+  }
+
+  @keyframes victoriaMomentsMarquee {
+    from { transform: translate3d(0, 0, 0); }
+    to { transform: translate3d(-50%, 0, 0); }
+  }
+
+  @media (max-width: 760px) {
+    #invitationContent {
+      background-attachment: scroll !important;
+      background-size: auto 100vh !important;
+      background-repeat: repeat-y !important;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay {
+      left: 5px !important;
+      top: 112px !important;
+      width: 66px !important;
+      height: 66px !important;
+      min-width: 66px !important;
+      opacity: .78;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay {
+      left: 5px !important;
+      top: 104px !important;
+      width: 64px !important;
+      height: 64px !important;
+      min-width: 64px !important;
+      opacity: .74;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay {
+      right: 6px !important;
+      top: 8px !important;
+      width: 64px !important;
+      height: 64px !important;
+      min-width: 64px !important;
+      opacity: .76;
+    }
+
+    #invitationContent .moments-carousel.seamless-moments {
+      border-radius: 48px 18px 48px 18px;
+    }
+
+    #invitationContent .seamless-moments .gallery {
+      animation-duration: 66s !important;
+    }
+
+    #invitationContent .seamless-moments .gallery-item,
+    #invitationContent .seamless-moments .gallery-item:nth-child(n) {
+      flex-basis: 72vw !important;
+      width: 72vw !important;
+      min-width: 72vw !important;
+    }
+
+    #invitationContent .seamless-moments .gallery-item img {
+      height: 86vw !important;
+      min-height: 270px;
+      max-height: 430px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #invitationContent .scroll-animate {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    #invitationContent .seamless-moments .gallery {
+      animation-duration: 140s !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <!-- COVER -->
@@ -6950,39 +7748,30 @@
 <div class="gallery">
 <div class="gallery-item">
 <img alt="Victoria moment 1" src="./assets/images/victoria-moment1.jpg"/>
-<span class="gallery-caption">Moment 01</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 2" src="./assets/images/victoria-moment2.jpg"/>
-<span class="gallery-caption">Moment 02</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 3" src="./assets/images/victoria-moment3.jpg"/>
-<span class="gallery-caption">Moment 03</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 4" src="./assets/images/victoria-moment4.jpg"/>
-<span class="gallery-caption">Moment 04</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 5" src="./assets/images/victoria-moment5.jpg"/>
-<span class="gallery-caption">Moment 05</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 6" src="./assets/images/victoria-moment6.jpg"/>
-<span class="gallery-caption">Moment 06</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 7" src="./assets/images/victoria-moment7.jpg"/>
-<span class="gallery-caption">Moment 07</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 8" src="./assets/images/victoria-moment8.jpg"/>
-<span class="gallery-caption">Moment 08</span>
 </div>
 <div class="gallery-item">
 <img alt="Victoria moment 9" src="./assets/images/victoria-moment9.jpg"/>
-<span class="gallery-caption">Moment 09</span>
 </div>
 </div>
 </div>
@@ -7110,14 +7899,10 @@
           cover.style.display = "none";
           invitationContent.classList.remove("hidden");
 
-          const revealItems = document.querySelectorAll(".reveal");
-          setTimeout(function () {
-            revealItems.forEach(function (item, index) {
-              setTimeout(function () {
-                item.classList.add("show");
-              }, index * 90);
-            });
-          }, 60);
+          document.body.classList.add("invitation-open");
+          if (typeof window.initInvitationScrollReveal === "function") {
+            window.initInvitationScrollReveal();
+          }
 
           window.scrollTo({
             top: 0,
@@ -7658,6 +8443,194 @@
 
       card.prepend(fill);
     });
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const main = document.getElementById("invitationContent");
+    const cards = Array.from(document.querySelectorAll("#invitationContent .section-card"));
+    const shapeClasses = [
+      "shape-royal-arch",
+      "shape-soft-wave",
+      "shape-countdown",
+      "shape-details",
+      "shape-love",
+      "shape-gallery",
+      "shape-wishes",
+      "shape-rsvp"
+    ];
+    const unicornClasses = [
+      "unicorn-hero-overlay",
+      "unicorn-opening-overlay",
+      "unicorn-countdown-overlay",
+      "unicorn-details-overlay",
+      "unicorn-love-overlay",
+      "unicorn-gallery-overlay",
+      "unicorn-wishes-overlay",
+      "unicorn-rsvp-overlay"
+    ];
+
+    cards.forEach(function (card, index) {
+      card.classList.add("shape-card", shapeClasses[index] || "shape-soft-wave");
+      card.classList.remove("unicorn-bottom-space");
+
+      const unicorn = card.querySelector(":scope > .unique-section-unicorn");
+      if (unicorn) {
+        unicorn.classList.remove("left", "right");
+        unicornClasses.forEach(function (name) { unicorn.classList.remove(name); });
+        unicorn.classList.add(unicornClasses[index] || "unicorn-gallery-overlay");
+      }
+    });
+
+    /* Continuous Sweet Moments, joined edge-to-edge with no captions. */
+    const gallery = document.querySelector(".gallery-section-card .gallery");
+    if (gallery) {
+      gallery.querySelectorAll(".gallery-caption").forEach(function (caption) {
+        caption.remove();
+      });
+
+      let carousel = gallery.closest(".moments-carousel");
+      let viewport = gallery.closest(".gallery-viewport");
+
+      if (!carousel) {
+        carousel = document.createElement("div");
+        carousel.className = "moments-carousel seamless-moments";
+        carousel.setAttribute("role", "region");
+        carousel.setAttribute("aria-label", "Sweet Moments Victoria bergerak otomatis");
+
+        viewport = document.createElement("div");
+        viewport.className = "gallery-viewport";
+
+        gallery.parentNode.insertBefore(carousel, gallery);
+        viewport.appendChild(gallery);
+        carousel.appendChild(viewport);
+      } else {
+        carousel.classList.add("seamless-moments");
+        carousel.querySelectorAll(".carousel-nav, .carousel-dots, .carousel-tap-hint").forEach(function (element) {
+          element.remove();
+        });
+      }
+
+      if (!gallery.dataset.seamlessReady) {
+        const originals = Array.from(gallery.querySelectorAll(":scope > .gallery-item:not(.is-clone)"));
+        originals.forEach(function (item) {
+          const clone = item.cloneNode(true);
+          clone.classList.add("is-clone");
+          clone.setAttribute("aria-hidden", "true");
+          clone.querySelectorAll("img").forEach(function (img) {
+            img.setAttribute("tabindex", "-1");
+            img.removeAttribute("role");
+            img.removeAttribute("aria-label");
+          });
+          gallery.appendChild(clone);
+        });
+        gallery.dataset.seamlessReady = "true";
+      }
+
+      /* Cloned images also open the existing premium lightbox. */
+      carousel.addEventListener("click", function (event) {
+        const img = event.target.closest(".gallery-item.is-clone img");
+        if (!img) return;
+
+        const lightbox = document.getElementById("photoLightbox");
+        const lightboxImg = document.getElementById("photoLightboxImg");
+        if (!lightbox || !lightboxImg) return;
+
+        lightboxImg.src = img.currentSrc || img.src;
+        lightboxImg.alt = img.alt || "Foto Victoria";
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.classList.add("lightbox-open");
+      });
+    }
+
+    let revealObserver = null;
+    const observedTargets = new WeakSet();
+
+    function prepareRevealTarget(element, index) {
+      if (!element || observedTargets.has(element)) return;
+      observedTargets.add(element);
+
+      const variants = ["reveal-up", "reveal-from-left", "reveal-from-right", "reveal-zoom"];
+      element.classList.add("scroll-animate", variants[index % variants.length]);
+      element.style.setProperty("--reveal-delay", ((index % 4) * 70) + "ms");
+      element.classList.remove("is-visible", "show");
+
+      if (revealObserver) revealObserver.observe(element);
+    }
+
+    window.initInvitationScrollReveal = function () {
+      if (!main) return;
+
+      if (revealObserver) revealObserver.disconnect();
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const selector = [
+        ".section-card",
+        ".hero-content",
+        ".opening-title",
+        ".opening-text",
+        ".photo-card",
+        ".countdown-wrap",
+        ".time-box",
+        ".details-shell",
+        ".detail-card",
+        ".message-box",
+        ".gallery-shell",
+        ".wishes-shell",
+        ".wish-form",
+        ".wish-card",
+        ".rsvp-card",
+        ".action-row",
+        ".footer-card"
+      ].join(",");
+
+      const targets = Array.from(main.querySelectorAll(selector));
+
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        targets.forEach(function (element) {
+          element.classList.add("scroll-animate", "is-visible", "show");
+        });
+        return;
+      }
+
+      revealObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible", "show");
+          observer.unobserve(entry.target);
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -8% 0px"
+      });
+
+      targets.forEach(function (element, index) {
+        prepareRevealTarget(element, index);
+      });
+
+      /* Wishes loaded later from Supabase also animate when they enter view. */
+      const wishesList = document.getElementById("wishesList");
+      if (wishesList && !wishesList.dataset.revealWatchReady) {
+        const mutationObserver = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            mutation.addedNodes.forEach(function (node) {
+              if (!(node instanceof HTMLElement)) return;
+              if (node.matches(".wish-card")) {
+                prepareRevealTarget(node, document.querySelectorAll(".wish-card").length);
+              }
+              node.querySelectorAll?.(".wish-card").forEach(function (card, index) {
+                prepareRevealTarget(card, index);
+              });
+            });
+          });
+        });
+        mutationObserver.observe(wishesList, { childList: true, subtree: true });
+        wishesList.dataset.revealWatchReady = "true";
+      }
+    };
   });
 </script>
 
