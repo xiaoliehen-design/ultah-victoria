@@ -6923,6 +6923,532 @@
   }
 </style>
 
+<style id="shape-pop-update">
+  /* Stronger sculpted shapes and pop-up silhouette refresh */
+  .shape-card {
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,247,251,0.90));
+    border: 1.5px solid rgba(223, 190, 126, 0.46) !important;
+    box-shadow:
+      0 34px 72px rgba(118, 71, 93, 0.17),
+      0 14px 28px rgba(233, 178, 201, 0.12),
+      0 3px 0 rgba(255,255,255,0.84) inset,
+      0 -16px 30px rgba(255,255,255,0.46) inset !important;
+    transform: translateZ(0);
+  }
+
+  .shape-card.reveal.show:hover {
+    transform: translateY(-8px) scale(1.004);
+    box-shadow:
+      0 44px 88px rgba(118, 71, 93, 0.20),
+      0 18px 36px rgba(233, 178, 201, 0.14),
+      0 3px 0 rgba(255,255,255,0.90) inset,
+      0 -18px 34px rgba(255,255,255,0.50) inset !important;
+  }
+
+  .shape-card::after {
+    filter: blur(16px);
+    opacity: 0.78;
+  }
+
+  .shape-royal-arch { border-radius: 170px 170px 54px 54px !important; }
+  .shape-soft-wave { border-radius: 62px 154px 74px 164px !important; }
+  .shape-countdown { border-radius: 176px 176px 52px 52px !important; }
+  .shape-details { border-radius: 42px 162px 42px 162px !important; }
+  .shape-love { border-radius: 166px 44px 166px 44px !important; }
+  .shape-gallery { border-radius: 56px 176px 56px 176px !important; }
+  .shape-wishes { border-radius: 178px 178px 52px 52px !important; }
+  .shape-rsvp { border-radius: 184px 184px 58px 58px !important; }
+
+  .shape-countdown .countdown-wrap,
+  .shape-rsvp .rsvp-card,
+  .shape-wishes .wishes-shell,
+  .shape-gallery .gallery-shell,
+  .shape-love .message-box,
+  .shape-details .details-shell {
+    background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,253,255,0.84));
+    border: 1px solid rgba(233, 193, 214, 0.62);
+  }
+
+  .shape-countdown .countdown-wrap {
+    border-radius: 110px 110px 38px 38px !important;
+    padding: 46px 28px 32px !important;
+    box-shadow: 0 26px 52px rgba(118,71,93,.12), 0 2px 0 rgba(255,255,255,.94) inset !important;
+  }
+
+  .shape-countdown .countdown {
+    align-items: stretch;
+  }
+
+  .shape-countdown .time-box {
+    min-height: 168px;
+    box-shadow: 0 18px 34px rgba(118,71,93,.10), 0 1px 0 rgba(255,255,255,.94) inset !important;
+    border: 1px solid rgba(233, 193, 214, 0.56);
+  }
+
+  .shape-countdown .time-box:nth-child(1),
+  .shape-countdown .time-box:nth-child(4) {
+    border-radius: 999px !important;
+  }
+
+  .shape-countdown .time-box:nth-child(2) {
+    border-radius: 34px 86px 34px 86px !important;
+  }
+
+  .shape-countdown .time-box:nth-child(3) {
+    border-radius: 86px 34px 86px 34px !important;
+  }
+
+  .shape-details .details-shell {
+    border-radius: 108px 108px 36px 36px !important;
+    padding: 36px 28px 28px !important;
+    box-shadow: 0 24px 48px rgba(118,71,93,.10), 0 2px 0 rgba(255,255,255,.95) inset !important;
+  }
+
+  .shape-details .detail-card {
+    box-shadow: 0 18px 34px rgba(118,71,93,.09), 0 1px 0 rgba(255,255,255,.96) inset !important;
+    border: 1px solid rgba(233, 193, 214, 0.58);
+  }
+
+  .shape-details .detail-card:nth-child(1) { border-radius: 92px 92px 28px 28px !important; }
+  .shape-details .detail-card:nth-child(2) { border-radius: 34px 104px 34px 104px !important; }
+  .shape-details .detail-card:nth-child(3) { border-radius: 104px 34px 104px 34px !important; }
+  .shape-details .detail-card:nth-child(4) { border-radius: 999px !important; }
+
+  .shape-details .detail-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 999px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(252,239,246,0.92));
+    box-shadow: 0 12px 24px rgba(118,71,93,.10), inset 0 1px 0 rgba(255,255,255,.96);
+  }
+
+  .shape-love .message-box {
+    border-radius: 108px 38px 108px 38px !important;
+    padding: 48px 52px !important;
+    box-shadow: 0 26px 52px rgba(118,71,93,.12), 0 2px 0 rgba(255,255,255,.95) inset !important;
+  }
+
+  .shape-gallery .gallery-shell {
+    border-radius: 112px 42px 112px 42px !important;
+    padding: 30px 22px 24px !important;
+    box-shadow: 0 26px 54px rgba(118,71,93,.12), 0 2px 0 rgba(255,255,255,.95) inset !important;
+  }
+
+  .shape-gallery .gallery-item {
+    border-radius: 28px !important;
+    overflow: hidden;
+  }
+
+  .shape-wishes .wishes-shell {
+    border-radius: 114px 114px 36px 36px !important;
+    padding: 38px 30px 32px !important;
+    box-shadow: 0 26px 52px rgba(118,71,93,.12), 0 2px 0 rgba(255,255,255,.95) inset !important;
+  }
+
+  .shape-wishes .wish-field input {
+    border-radius: 999px !important;
+  }
+
+  .shape-wishes .wish-field textarea {
+    border-radius: 38px 38px 38px 18px !important;
+  }
+
+  .shape-wishes .wish-card {
+    box-shadow: 0 16px 30px rgba(118,71,93,.08), 0 1px 0 rgba(255,255,255,.95) inset !important;
+    border: 1px solid rgba(233, 193, 214, 0.58);
+  }
+
+  .shape-wishes .wish-card:nth-child(4n+1) { border-radius: 70px 26px 70px 26px !important; }
+  .shape-wishes .wish-card:nth-child(4n+2) { border-radius: 26px 70px 26px 70px !important; }
+  .shape-wishes .wish-card:nth-child(4n+3) { border-radius: 999px !important; }
+  .shape-wishes .wish-card:nth-child(4n) { border-radius: 30px 30px 78px 78px !important; }
+
+  .shape-rsvp .rsvp-card {
+    border-radius: 128px 128px 42px 42px !important;
+    box-shadow: 0 34px 66px rgba(118,71,93,.20), 0 2px 0 rgba(255,255,255,.32) inset !important;
+  }
+
+  @media (max-width: 1024px) {
+    .shape-royal-arch,
+    .shape-countdown,
+    .shape-wishes,
+    .shape-rsvp { border-radius: 132px 132px 42px 42px !important; }
+    .shape-soft-wave,
+    .shape-gallery { border-radius: 44px 132px 54px 142px !important; }
+    .shape-love { border-radius: 132px 34px 132px 34px !important; }
+    .shape-details { border-radius: 34px 138px 34px 138px !important; }
+    .shape-countdown .time-box { min-height: 150px; }
+  }
+
+  @media (max-width: 767px) {
+    .shape-card {
+      box-shadow:
+        0 24px 48px rgba(118, 71, 93, 0.16),
+        0 10px 18px rgba(233, 178, 201, 0.11),
+        0 2px 0 rgba(255,255,255,0.84) inset !important;
+    }
+
+    .shape-royal-arch,
+    .shape-countdown,
+    .shape-wishes,
+    .shape-rsvp { border-radius: 94px 94px 30px 30px !important; }
+    .shape-soft-wave,
+    .shape-gallery { border-radius: 30px 96px 38px 108px !important; }
+    .shape-love { border-radius: 96px 24px 96px 24px !important; }
+    .shape-details { border-radius: 24px 104px 24px 104px !important; }
+
+    .shape-countdown .countdown-wrap,
+    .shape-details .details-shell,
+    .shape-wishes .wishes-shell,
+    .shape-gallery .gallery-shell,
+    .shape-love .message-box,
+    .shape-rsvp .rsvp-card {
+      border-radius: 58px 58px 22px 22px !important;
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+    }
+
+    .shape-countdown .time-box {
+      min-height: 112px;
+    }
+
+    .shape-countdown .time-box:nth-child(1),
+    .shape-countdown .time-box:nth-child(4) {
+      border-radius: 34px !important;
+    }
+
+    .shape-details .detail-card:nth-child(4),
+    .shape-wishes .wish-card:nth-child(4n+3) {
+      border-radius: 34px !important;
+    }
+
+    .shape-love .message-box { padding-top: 34px !important; padding-bottom: 34px !important; }
+  }
+</style>
+
+<style id="unicorn-layer-rsvp-fix">
+  /* Unicorn overlays must sit above every inner card and decoration. */
+  #invitationContent .shape-card {
+    isolation: isolate;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-hero-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-opening-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-gallery-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-rsvp-overlay {
+    z-index: 80 !important;
+    pointer-events: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn .asset-crown-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 81 !important;
+    pointer-events: none;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn .asset-unicorn-img {
+    position: relative;
+    z-index: 82 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Keep RSVP unicorn on top of the inner RSVP panel without covering its copy. */
+  #invitationContent .shape-rsvp > .unique-section-unicorn.unicorn-rsvp-overlay {
+    left: 24px !important;
+    bottom: 22px !important;
+    width: 108px !important;
+    height: 108px !important;
+    min-width: 108px !important;
+  }
+
+  /* Restore the RSVP contrast that was lost when the pop-up shape became white. */
+  #invitationContent .shape-rsvp .rsvp-card {
+    position: relative;
+    z-index: 5 !important;
+    color: #ffffff !important;
+    background:
+      radial-gradient(circle at 14% 20%, rgba(255,255,255,0.22), transparent 24%),
+      radial-gradient(circle at 84% 78%, rgba(255,255,255,0.16), transparent 26%),
+      linear-gradient(135deg, #bd668f 0%, #dc8fb2 48%, #c66f98 100%) !important;
+    border: 1px solid rgba(255,255,255,0.48) !important;
+    box-shadow:
+      0 34px 68px rgba(118,71,93,.24),
+      inset 0 2px 0 rgba(255,255,255,.30),
+      inset 0 -14px 30px rgba(119,55,88,.10) !important;
+  }
+
+  #invitationContent .shape-rsvp .rsvp-card::before {
+    z-index: 1 !important;
+    border-color: rgba(255,255,255,0.32) !important;
+  }
+
+  #invitationContent .shape-rsvp .rsvp-card::after {
+    z-index: 1 !important;
+    opacity: 0.62 !important;
+  }
+
+  #invitationContent .shape-rsvp .rsvp-inner {
+    position: relative;
+    z-index: 10 !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    filter: none !important;
+    text-shadow: 0 2px 12px rgba(105,49,78,0.14);
+  }
+
+  #invitationContent .shape-rsvp .rsvp-kicker,
+  #invitationContent .shape-rsvp .rsvp-ornament,
+  #invitationContent .shape-rsvp .rsvp-card h2,
+  #invitationContent .shape-rsvp .rsvp-card p,
+  #invitationContent .shape-rsvp .rsvp-note,
+  #invitationContent .shape-rsvp .rsvp-note strong {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #invitationContent .shape-rsvp .rsvp-card h2 {
+    text-shadow: 0 4px 18px rgba(105,49,78,0.22) !important;
+  }
+
+  #invitationContent .shape-rsvp .rsvp-card p {
+    text-shadow: 0 2px 12px rgba(105,49,78,0.16) !important;
+  }
+
+  #invitationContent .shape-rsvp .btn-white {
+    position: relative;
+    z-index: 12;
+    background: rgba(255,255,255,0.96) !important;
+    color: #9a496e !important;
+    border: 1px solid rgba(255,255,255,0.74) !important;
+    box-shadow: 0 16px 30px rgba(93,42,68,0.18) !important;
+  }
+
+  #invitationContent .shape-rsvp .btn-outline {
+    position: relative;
+    z-index: 12;
+    color: #ffffff !important;
+    border-color: rgba(255,255,255,0.88) !important;
+    background: rgba(255,255,255,0.10) !important;
+  }
+
+  @media (max-width: 760px) {
+    #invitationContent .shape-rsvp > .unique-section-unicorn.unicorn-rsvp-overlay {
+      left: 6px !important;
+      bottom: 8px !important;
+      width: 72px !important;
+      height: 72px !important;
+      min-width: 72px !important;
+    }
+
+    #invitationContent .shape-rsvp .rsvp-card {
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+    }
+  }
+</style>
+
+
+<style id="unicorn-full-title-megah-fix">
+  /* Unicorn overlays must never be clipped and must sit above all layers. */
+  #invitationContent .shape-card,
+  #invitationContent .shape-card.hero-luxe-card,
+  #invitationContent .shape-card.opening-section-card,
+  #invitationContent .shape-card.gallery-section-card,
+  #invitationContent .shape-card.shape-countdown,
+  #invitationContent .shape-card.shape-details,
+  #invitationContent .shape-card.shape-love,
+  #invitationContent .shape-card.shape-wishes,
+  #invitationContent .shape-card.shape-rsvp {
+    overflow: visible !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-hero-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-opening-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-gallery-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-rsvp-overlay {
+    z-index: 999 !important;
+    pointer-events: none !important;
+    overflow: visible !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn .asset-unicorn-img,
+  #invitationContent .shape-card > .unique-section-unicorn .asset-crown-glow {
+    overflow: visible !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+  }
+
+  /* Pull unicorns slightly inward so they stay fully visible on curved corners. */
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-hero-overlay {
+    left: 28px !important;
+    top: 20px !important;
+    width: 118px !important;
+    height: 118px !important;
+    min-width: 118px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-opening-overlay {
+    right: 28px !important;
+    top: 18px !important;
+    width: 116px !important;
+    height: 116px !important;
+    min-width: 116px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay {
+    left: 26px !important;
+    top: 96px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay {
+    left: 26px !important;
+    top: 92px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay {
+    right: 24px !important;
+    top: 16px !important;
+    width: 108px !important;
+    height: 108px !important;
+    min-width: 108px !important;
+  }
+
+  #invitationContent .shape-card > .unique-section-unicorn.unicorn-gallery-overlay {
+    right: 24px !important;
+    top: 16px !important;
+    width: 112px !important;
+    height: 112px !important;
+    min-width: 112px !important;
+  }
+
+  #invitationContent .shape-rsvp > .unique-section-unicorn.unicorn-rsvp-overlay {
+    left: 22px !important;
+    bottom: 16px !important;
+    width: 110px !important;
+    height: 110px !important;
+    min-width: 110px !important;
+  }
+
+  /* Make Victoria Quinn Elouera more majestic and more legible. */
+  #invitationContent .opening-title {
+    font-size: clamp(54px, 7.2vw, 96px) !important;
+    line-height: 0.96 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.035em !important;
+    color: #9a4f74 !important;
+    text-shadow:
+      0 1px 0 rgba(255,255,255,0.98),
+      0 8px 24px rgba(154,79,116,0.15),
+      0 2px 10px rgba(255,255,255,0.45) !important;
+    margin-bottom: 18px !important;
+  }
+
+  #invitationContent .opening-section-card .section-tag {
+    font-weight: 700 !important;
+    letter-spacing: 0.18em !important;
+    color: #9a4f74 !important;
+    box-shadow: 0 10px 24px rgba(154,79,116,0.10), inset 0 1px 0 rgba(255,255,255,0.92) !important;
+  }
+
+  #invitationContent .opening-text {
+    font-size: 18px !important;
+    color: #734f5f !important;
+    max-width: 760px !important;
+  }
+
+  @media (max-width: 767px) {
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-hero-overlay {
+      left: 14px !important;
+      top: 12px !important;
+      width: 82px !important;
+      height: 82px !important;
+      min-width: 82px !important;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-opening-overlay {
+      right: 12px !important;
+      top: 10px !important;
+      width: 78px !important;
+      height: 78px !important;
+      min-width: 78px !important;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-love-overlay,
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-wishes-overlay,
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-gallery-overlay {
+      right: 10px !important;
+      top: 10px !important;
+      width: 74px !important;
+      height: 74px !important;
+      min-width: 74px !important;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-countdown-overlay {
+      left: 10px !important;
+      top: 90px !important;
+      width: 72px !important;
+      height: 72px !important;
+      min-width: 72px !important;
+    }
+
+    #invitationContent .shape-card > .unique-section-unicorn.unicorn-details-overlay {
+      left: 10px !important;
+      top: 88px !important;
+      width: 72px !important;
+      height: 72px !important;
+      min-width: 72px !important;
+    }
+
+    #invitationContent .shape-rsvp > .unique-section-unicorn.unicorn-rsvp-overlay {
+      left: 10px !important;
+      bottom: 8px !important;
+      width: 74px !important;
+      height: 74px !important;
+      min-width: 74px !important;
+    }
+
+    #invitationContent .opening-title {
+      font-size: clamp(40px, 10.8vw, 62px) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.03em !important;
+      margin-bottom: 12px !important;
+    }
+
+    #invitationContent .opening-section-card .section-tag {
+      letter-spacing: 0.14em !important;
+      padding-inline: 18px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <!-- COVER -->
@@ -7235,7 +7761,7 @@
 </div>
 </div>
 </div>
-<div class="section-card hero-card hero-luxe-card center reveal">
+<div class="section-card shape-card shape-royal-arch hero-card hero-luxe-card center reveal">
 <div aria-hidden="true" class="section-gutter-decor section-gutter-left">
 <div class="section-unicorn-medallion">
 <svg class="clean-unicorn-svg section-unicorn-art unicorn-style-hero" focusable="false" role="presentation" viewBox="0 0 120 120">
@@ -7382,7 +7908,7 @@
 <!-- OPENING -->
 <section class="section">
 <div class="container">
-<div class="section-card opening-section-card center reveal">
+<div class="section-card shape-card shape-soft-wave opening-section-card center reveal">
 <div aria-hidden="true" class="section-gutter-decor section-gutter-left">
 <div class="section-unicorn-medallion">
 <svg class="clean-unicorn-svg section-unicorn-art" focusable="false" role="presentation" viewBox="0 0 120 120">
@@ -7482,7 +8008,7 @@
 <!-- COUNTDOWN -->
 <section class="section">
 <div class="container">
-<div class="section-card reveal">
+<div class="section-card shape-card shape-countdown reveal">
 <div class="decor-layer">
 <div class="cloud small count-cloud-1"></div>
 <div class="cloud small count-cloud-2"></div>
@@ -7520,7 +8046,7 @@
 <!-- DETAILS -->
 <section class="section">
 <div class="container">
-<div class="section-card reveal">
+<div class="section-card shape-card shape-details reveal">
 <div class="decor-layer">
 <div class="cloud small detail-cloud-1"></div>
 <div class="cloud small detail-cloud-2"></div>
@@ -7627,7 +8153,7 @@
 <!-- MESSAGE -->
 <section class="section">
 <div class="container">
-<div class="section-card center reveal">
+<div class="section-card shape-card shape-love center reveal">
 <div class="decor-layer">
 <div class="cloud small message-cloud-1"></div>
 <div class="cloud small message-cloud-2"></div>
@@ -7652,7 +8178,7 @@
 <!-- GALLERY -->
 <section class="section">
 <div class="container">
-<div class="section-card gallery-section-card reveal">
+<div class="section-card shape-card shape-gallery gallery-section-card reveal">
 <div aria-hidden="true" class="gallery-side-decor gallery-side-left">
 <div class="gallery-unicorn-medallion">
 <svg class="gallery-unicorn-art clean-unicorn-svg" focusable="false" role="presentation" viewBox="0 0 180 180">
@@ -7781,7 +8307,7 @@
 <!-- BIRTHDAY WISHES -->
 <section class="section">
 <div class="container">
-<div class="section-card reveal">
+<div class="section-card shape-card shape-wishes reveal">
 <div class="decor-layer">
 <div class="cloud small message-cloud-1"></div>
 <div class="cloud small message-cloud-2"></div>
@@ -7815,7 +8341,7 @@
 <!-- RSVP -->
 <section class="section">
 <div class="container">
-<div class="section-card reveal">
+<div class="section-card shape-card shape-rsvp reveal">
 <div class="decor-layer">
 <div class="cloud small rsvp-cloud-1"></div>
 <div class="cloud small rsvp-cloud-2"></div>
