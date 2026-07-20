@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f7dce8" />
   <title>Undangan Ulang Tahun Victoria — 22 Agustus 2026</title>
-<!-- Revision: Flower Decoration 3, 7, 8 + mobile details 2x2 + seamless flower motion -->
+<!-- Revision: Flower Decoration 3, 7, 8 + mobile details 2x2 + seamless flower motion + opening loader + single calendar button -->
   <meta name="description" content="Undangan ulang tahun pertama Victoria Quinn Elouera, Sabtu 22 Agustus 2026 pukul 11.00 WIB di McDonald's Kelapa Gading." />
   <meta property="og:title" content="Victoria Turns One" />
   <meta property="og:description" content="Sabtu, 22 Agustus 2026 pukul 11.00 WIB — McDonald's Kelapa Gading." />
@@ -1120,6 +1120,339 @@
         scroll-behavior: auto !important;
       }
     }
+
+
+    /* =========================================================
+       OPENING LOADER — elegant invitation-envelope transition
+       The next page is preloaded behind this overlay for 3–5 seconds.
+    ========================================================= */
+    body.invitation-loading {
+      overflow: hidden;
+      overscroll-behavior: none;
+    }
+    .invitation-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.96) 0 8%, rgba(255,244,250,.92) 30%, rgba(247,211,228,.94) 68%, rgba(224,157,190,.97) 100%);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .42s ease, visibility .42s ease;
+    }
+    .invitation-loader::before,
+    .invitation-loader::after {
+      content: "";
+      position: absolute;
+      width: min(76vw, 720px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.38);
+      box-shadow:
+        inset 0 0 0 28px rgba(255,255,255,.05),
+        inset 0 0 0 58px rgba(255,255,255,.04);
+      animation: loaderHaloPulse 3.6s ease-in-out infinite;
+    }
+    .invitation-loader::after {
+      width: min(54vw, 520px);
+      animation-delay: -1.8s;
+    }
+    .invitation-loader.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+    .invitation-loader.is-finishing {
+      opacity: 0;
+      transform: scale(1.025);
+      transition: opacity .48s ease, transform .58s cubic-bezier(.22,.72,.18,1), visibility .48s ease;
+    }
+    .loader-content {
+      position: relative;
+      z-index: 3;
+      width: min(440px, 100%);
+      text-align: center;
+      color: var(--rose);
+    }
+    .loader-visual {
+      position: relative;
+      width: 250px;
+      height: 220px;
+      margin: 0 auto 12px;
+      perspective: 900px;
+    }
+    .loader-orbit {
+      position: absolute;
+      left: 50%;
+      top: 48%;
+      border-radius: 50%;
+      border: 1px dashed rgba(199,160,93,.48);
+      transform: translate(-50%,-50%);
+      opacity: .66;
+    }
+    .loader-orbit.one { width: 224px; height: 224px; animation: loaderOrbit 8s linear infinite; }
+    .loader-orbit.two { width: 174px; height: 174px; animation: loaderOrbitReverse 6s linear infinite; }
+    .loader-orbit::before,
+    .loader-orbit::after {
+      content: "✦";
+      position: absolute;
+      color: rgba(199,160,93,.92);
+      font-size: 16px;
+      text-shadow: 0 0 14px rgba(255,255,255,.98);
+    }
+    .loader-orbit::before { left: 14%; top: 2%; }
+    .loader-orbit::after { right: 7%; bottom: 18%; font-size: 11px; }
+    .loader-envelope {
+      position: absolute;
+      left: 50%;
+      bottom: 14px;
+      width: 188px;
+      height: 126px;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 22px 28px rgba(109,48,77,.18));
+    }
+    .loader-envelope-back {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #fff7fb, #f2bad4);
+      border: 1px solid rgba(157,79,112,.22);
+    }
+    .loader-card {
+      position: absolute;
+      z-index: 2;
+      left: 17px;
+      right: 17px;
+      top: 8px;
+      height: 116px;
+      display: grid;
+      place-content: center;
+      gap: 3px;
+      border-radius: 9px;
+      color: var(--rose);
+      background:
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,.98), transparent 34%),
+        linear-gradient(180deg, #ffffff, #fff2f8);
+      border: 1px solid rgba(199,160,93,.36);
+      box-shadow: 0 10px 24px rgba(115,54,82,.10);
+      transform: translateY(45px) scale(.94);
+      opacity: .12;
+    }
+    .loader-card::before,
+    .loader-card::after {
+      content: "✦";
+      position: absolute;
+      top: 11px;
+      color: rgba(199,160,93,.70);
+      font-size: 10px;
+    }
+    .loader-card::before { left: 14px; }
+    .loader-card::after { right: 14px; }
+    .loader-monogram {
+      font-family: var(--script);
+      font-size: 52px;
+      line-height: .9;
+    }
+    .loader-card small {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .loader-envelope-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .loader-envelope-pocket::before,
+    .loader-envelope-pocket::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 58%;
+      height: 100%;
+      background: linear-gradient(160deg, #f9d4e5, #e8a9c8);
+      border-bottom: 1px solid rgba(157,79,112,.18);
+    }
+    .loader-envelope-pocket::before {
+      left: 0;
+      clip-path: polygon(0 18%, 100% 72%, 100% 100%, 0 100%);
+    }
+    .loader-envelope-pocket::after {
+      right: 0;
+      clip-path: polygon(100% 18%, 0 72%, 0 100%, 100% 100%);
+    }
+    .loader-envelope-flap {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 82px;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      background: linear-gradient(165deg, #fff6fa, #edb6d0);
+      border-top: 1px solid rgba(157,79,112,.20);
+      transform-origin: 50% 0;
+      backface-visibility: hidden;
+    }
+    .invitation-loader.active .loader-envelope-flap {
+      animation: loaderFlapOpen 3.35s cubic-bezier(.22,.72,.18,1) forwards;
+    }
+    .invitation-loader.active .loader-card {
+      animation: loaderCardRise 3.35s cubic-bezier(.22,.72,.18,1) forwards;
+    }
+    .loader-title {
+      margin: 0;
+      font-family: var(--title);
+      font-size: clamp(29px, 6vw, 42px);
+      line-height: 1;
+      letter-spacing: -.025em;
+    }
+    .loader-subtitle {
+      margin: 10px auto 18px;
+      color: rgba(93,65,78,.78);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .loader-progress {
+      position: relative;
+      width: min(280px, 74vw);
+      height: 3px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 0 0 1px rgba(199,160,93,.14);
+    }
+    .loader-progress span {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #c7789d, #efb9d0, #c7a05d);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    .invitation-loader.active .loader-progress span {
+      animation: loaderProgress 3.95s cubic-bezier(.2,.7,.2,1) forwards;
+    }
+    .loader-spark {
+      position: absolute;
+      z-index: 2;
+      left: var(--loader-x);
+      top: var(--loader-y);
+      color: rgba(255,255,255,.94);
+      font-size: var(--loader-size);
+      text-shadow: 0 0 10px #fff, 0 0 20px rgba(199,160,93,.52);
+      animation: loaderSparkFloat var(--loader-speed) ease-in-out infinite;
+      animation-delay: var(--loader-delay);
+    }
+
+    /* One calendar action under the countdown. */
+    .calendar-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 34px;
+    }
+    .calendar-button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 28px;
+      overflow: hidden;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(135deg, #ad5c83, #d995b5 56%, #c7a05d 140%);
+      border: 1px solid rgba(157,79,112,.20);
+      box-shadow: 0 15px 30px rgba(134,71,96,.17);
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .01em;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .calendar-button::after {
+      content: "";
+      position: absolute;
+      top: -25%;
+      bottom: -25%;
+      left: -45%;
+      width: 28%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.82), transparent);
+      transform: skewX(-18deg);
+      animation: calendarShine 5.2s ease-in-out infinite;
+    }
+    .calendar-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 38px rgba(134,71,96,.22);
+    }
+    .calendar-button svg {
+      width: 20px;
+      height: 20px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @keyframes loaderHaloPulse {
+      0%,100% { opacity: .26; transform: scale(.94); }
+      50% { opacity: .62; transform: scale(1.04); }
+    }
+    @keyframes loaderOrbit {
+      from { transform: translate(-50%,-50%) rotate(0deg); }
+      to { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+    @keyframes loaderOrbitReverse {
+      from { transform: translate(-50%,-50%) rotate(360deg); }
+      to { transform: translate(-50%,-50%) rotate(0deg); }
+    }
+    @keyframes loaderFlapOpen {
+      0%,17% { transform: rotateX(0deg); }
+      47%,100% { transform: rotateX(-178deg); z-index: 1; }
+    }
+    @keyframes loaderCardRise {
+      0%,29% { transform: translateY(45px) scale(.94); opacity: .12; }
+      68% { transform: translateY(-55px) scale(1.02); opacity: 1; }
+      100% { transform: translateY(-46px) scale(1); opacity: 1; }
+    }
+    @keyframes loaderProgress {
+      0% { transform: scaleX(0); }
+      62% { transform: scaleX(.72); }
+      88% { transform: scaleX(.92); }
+      100% { transform: scaleX(1); }
+    }
+    @keyframes loaderSparkFloat {
+      0%,100% { opacity: .24; transform: translate3d(0,10px,0) scale(.72) rotate(0deg); }
+      50% { opacity: 1; transform: translate3d(8px,-15px,0) scale(1.18) rotate(16deg); }
+    }
+    @keyframes calendarShine {
+      0%,72%,100% { left: -45%; opacity: 0; }
+      80% { opacity: .85; }
+      94% { left: 128%; opacity: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .loader-visual { width: 220px; height: 205px; }
+      .loader-envelope { width: 166px; height: 112px; }
+      .loader-envelope-flap { height: 72px; }
+      .loader-card { left: 15px; right: 15px; height: 104px; }
+      .loader-orbit.one { width: 204px; height: 204px; }
+      .loader-orbit.two { width: 154px; height: 154px; }
+      .calendar-button { width: min(310px, 100%); padding-inline: 20px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1140,6 +1473,33 @@
       <button class="open-button" id="openInvitation" type="button">Buka Undangan</button>
     </div>
   </section>
+
+  <div class="invitation-loader" id="invitationLoader" aria-hidden="true" aria-live="polite">
+    <span class="loader-spark" style="--loader-x:10%;--loader-y:18%;--loader-size:16px;--loader-speed:4.8s;--loader-delay:-1.2s">✦</span>
+    <span class="loader-spark" style="--loader-x:82%;--loader-y:16%;--loader-size:12px;--loader-speed:5.4s;--loader-delay:-2.5s">◇</span>
+    <span class="loader-spark" style="--loader-x:18%;--loader-y:72%;--loader-size:10px;--loader-speed:4.2s;--loader-delay:-.8s">✦</span>
+    <span class="loader-spark" style="--loader-x:88%;--loader-y:74%;--loader-size:17px;--loader-speed:5.8s;--loader-delay:-3.1s">✦</span>
+    <span class="loader-spark" style="--loader-x:31%;--loader-y:10%;--loader-size:8px;--loader-speed:4.9s;--loader-delay:-2s">◇</span>
+    <span class="loader-spark" style="--loader-x:67%;--loader-y:84%;--loader-size:9px;--loader-speed:5.1s;--loader-delay:-1.7s">◇</span>
+    <div class="loader-content">
+      <div class="loader-visual" aria-hidden="true">
+        <span class="loader-orbit one"></span>
+        <span class="loader-orbit two"></span>
+        <div class="loader-envelope">
+          <div class="loader-envelope-back"></div>
+          <div class="loader-card">
+            <span class="loader-monogram">V</span>
+            <small>Victoria Turns One</small>
+          </div>
+          <div class="loader-envelope-pocket"></div>
+          <div class="loader-envelope-flap"></div>
+        </div>
+      </div>
+      <p class="loader-title">Membuka Undangan</p>
+      <p class="loader-subtitle">Menyiapkan seluruh halaman dan momen indah Victoria…</p>
+      <div class="loader-progress" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
 
   <main class="invitation" id="invitationContent" hidden>
     <div class="ambient-effects" id="invitationEffects" aria-hidden="true"></div>
@@ -1184,6 +1544,17 @@
           <div class="time-unit"><span class="time-number" id="hours">00</span><span class="time-label">Jam</span></div>
           <div class="time-unit"><span class="time-number" id="minutes">00</span><span class="time-label">Menit</span></div>
           <div class="time-unit"><span class="time-number" id="seconds">00</span><span class="time-label">Detik</span></div>
+        </div>
+
+        <div class="calendar-action">
+          <a class="calendar-button" id="addToCalendar" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ulang+Tahun+Pertama+Victoria+Quinn+Elouera&dates=20260822T040000Z%2F20260822T060000Z&details=Perayaan+ulang+tahun+pertama+Victoria+Quinn+Elouera.+Kami+menantikan+kehadiran+Bapak%2FIbu%2FSaudara%2Fi.&location=McDonald%27s+Kelapa+Gading&ctz=Asia%2FJakarta" target="_blank" rel="noopener noreferrer" aria-label="Tambahkan acara ulang tahun Victoria ke kalender">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="16" rx="3"></rect>
+              <path d="M8 3v4M16 3v4M3 10h18"></path>
+              <path d="M12 13v5M9.5 15.5h5"></path>
+            </svg>
+            <span>Tambahkan ke Kalender</span>
+          </a>
         </div>
 
       </div>
@@ -1372,6 +1743,7 @@
       const openButton = document.getElementById("openInvitation");
       const music = document.getElementById("bgMusic");
       const musicToggle = document.getElementById("musicToggle");
+      const invitationLoader = document.getElementById("invitationLoader");
 
       document.querySelectorAll(".unicorn-decoration img").forEach(function (image) {
         image.addEventListener("error", function () {
@@ -1447,31 +1819,107 @@
         }
       }
 
+      function wait(milliseconds) {
+        return new Promise(function (resolve) {
+          window.setTimeout(resolve, milliseconds);
+        });
+      }
+
+      function preloadInvitationAssets() {
+        if (!invitation) return Promise.resolve();
+
+        invitation.querySelectorAll("img").forEach(function (image) {
+          image.loading = "eager";
+          image.decoding = "async";
+        });
+        invitation.querySelectorAll("iframe").forEach(function (frame) {
+          frame.loading = "eager";
+        });
+
+        const pendingImages = Array.from(invitation.querySelectorAll("img")).map(function (image) {
+          return new Promise(function (resolve) {
+            if (image.complete) {
+              resolve();
+              return;
+            }
+            const finish = function () { resolve(); };
+            image.addEventListener("load", finish, { once: true });
+            image.addEventListener("error", finish, { once: true });
+          });
+        });
+
+        /* CSS backgrounds and web fonts are also prepared before the loader closes. */
+        const staticAssets = [
+          "./assets/images/background%20undangan.jpg"
+        ].map(function (source) {
+          return new Promise(function (resolve) {
+            const preloadImage = new Image();
+            preloadImage.onload = resolve;
+            preloadImage.onerror = resolve;
+            preloadImage.src = source;
+          });
+        });
+        const fontsReady = document.fonts && document.fonts.ready
+          ? document.fonts.ready.catch(function () {})
+          : Promise.resolve();
+
+        return Promise.allSettled(pendingImages.concat(staticAssets).concat([fontsReady]));
+      }
+
+      function showLoadedInvitation() {
+        invitation.style.visibility = "";
+        invitation.classList.add("invitation-enter");
+        musicToggle.hidden = false;
+        window.scrollTo({ top: 0, behavior: "auto" });
+        initReveal();
+
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            invitation.classList.add("invitation-visible");
+            invitationLoader.classList.add("is-finishing");
+          });
+        });
+
+        window.setTimeout(function () {
+          invitationLoader.classList.remove("active", "is-finishing");
+          invitationLoader.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("invitation-loading");
+        }, 520);
+
+        window.setTimeout(function () {
+          invitation.classList.remove("invitation-enter", "invitation-visible");
+        }, 1200);
+      }
+
       let invitationIsOpening = false;
       openButton.addEventListener("click", function () {
         if (invitationIsOpening) return;
         invitationIsOpening = true;
         openButton.disabled = true;
         createOpeningBurst(openButton);
-        cover.classList.add("is-opening");
         startMusic();
+
+        document.body.classList.add("invitation-loading");
+        invitationLoader.setAttribute("aria-hidden", "false");
+        invitationLoader.classList.add("active");
+        cover.classList.add("is-opening");
+
+        /* Unhide and preload the complete invitation behind the loader. */
+        invitation.hidden = false;
+        invitation.style.visibility = "hidden";
+        const minimumLoadingTime = wait(3600);
+        const assetLoadingWithLimit = Promise.race([
+          preloadInvitationAssets(),
+          wait(4300)
+        ]);
 
         window.setTimeout(function () {
           cover.hidden = true;
-          invitation.hidden = false;
-          invitation.classList.add("invitation-enter");
-          musicToggle.hidden = false;
-          window.scrollTo({ top: 0, behavior: "auto" });
-          initReveal();
-          requestAnimationFrame(function () {
-            requestAnimationFrame(function () {
-              invitation.classList.add("invitation-visible");
-            });
-          });
-          window.setTimeout(function () {
-            invitation.classList.remove("invitation-enter", "invitation-visible");
-          }, 1150);
         }, 720);
+
+        Promise.all([minimumLoadingTime, assetLoadingWithLimit])
+          .then(showLoadedInvitation)
+          .catch(showLoadedInvitation);
       });
 
       musicToggle.addEventListener("click", async function () {
