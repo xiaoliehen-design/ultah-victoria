@@ -1772,6 +1772,105 @@
       }
     }
 
+
+
+    /* =========================================================
+       FINAL MAGICAL MOMENT + MAP + ENDING FRAME REVISION
+    ========================================================= */
+    .magical-moment-copy {
+      max-width: 760px;
+      margin: 18px auto clamp(28px, 4vw, 42px);
+      text-wrap: balance;
+    }
+
+    .detail-map-action .map-button {
+      min-width: min(290px, 100%);
+      color: #ffffff;
+      background: linear-gradient(135deg, #be6b92, #d99cba);
+      border-color: rgba(157,79,112,.22);
+      box-shadow: 0 14px 28px rgba(134,71,96,.16);
+    }
+    .detail-map-action .map-button:hover {
+      background: linear-gradient(135deg, #b95f89, #d58daf);
+      box-shadow: 0 18px 34px rgba(134,71,96,.22);
+    }
+
+    .ending-invitation-frame {
+      position: relative;
+      width: min(660px, 92vw);
+      aspect-ratio: 2048 / 1991;
+      margin: clamp(28px, 5vw, 54px) auto 0;
+      overflow: visible;
+      isolation: isolate;
+      filter: drop-shadow(0 20px 34px rgba(121,60,88,.12));
+    }
+    .ending-invitation-photo,
+    .ending-invitation-border {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+    .ending-invitation-photo {
+      z-index: 1;
+      top: 11.5%;
+      right: 17.5%;
+      bottom: 12.5%;
+      left: 17.5%;
+      width: 65%;
+      height: 76%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 2px;
+      background: rgba(255,255,255,.84);
+      box-shadow: 0 12px 26px rgba(98,47,72,.11);
+    }
+    .ending-invitation-border {
+      z-index: 2;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      filter: drop-shadow(0 8px 18px rgba(100,49,73,.08));
+    }
+
+    @media (max-width: 760px) {
+      .magical-moment-copy {
+        margin-top: 14px;
+        margin-bottom: 28px;
+        padding-inline: 8px;
+        font-size: clamp(15px, 4.1vw, 17px);
+        line-height: 1.72;
+      }
+      .detail-map-action .map-button {
+        width: min(310px, 92vw);
+        min-height: 52px;
+        font-size: 16px;
+      }
+      .ending-invitation-frame {
+        width: min(520px, 96vw);
+        margin-top: 30px;
+      }
+      .footer {
+        padding-bottom: max(76px, env(safe-area-inset-bottom));
+      }
+    }
+
+    @media (max-width: 420px) {
+      .ending-invitation-frame {
+        width: 98vw;
+        margin-left: calc(50% - 49vw);
+      }
+      .ending-invitation-photo {
+        top: 12%;
+        right: 18%;
+        bottom: 13%;
+        left: 18%;
+        width: 64%;
+        height: 75%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1916,7 +2015,7 @@
         </div>
 
         <div class="detail-map-action">
-          <a class="secondary-button" href="https://maps.google.com/?q=McDonald%27s+Kelapa+Gading" target="_blank" rel="noopener noreferrer" aria-label="Buka lokasi McDonald's Kelapa Gading di Google Maps">
+          <a class="primary-button map-button" href="https://maps.google.com/?q=McDonald%27s+Kelapa+Gading" target="_blank" rel="noopener noreferrer" aria-label="Buka lokasi McDonald's Kelapa Gading di Google Maps">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"></path>
               <circle cx="12" cy="10" r="2.2"></circle>
@@ -1946,6 +2045,7 @@
       <div class="flow-inner">
         <span class="eyebrow">Victoria in Motion</span>
         <h2 class="section-title">A Little Magical Moment</h2>
+        <p class="section-copy magical-moment-copy">Video dan foto-foto yang mengabadikan tawa, kehangatan, dan kebahagiaan Victoria dalam perjalanan tahun pertamanya.</p>
         <div class="video-showcase">
           <img class="video-flower top" src="./assets/images/Flower%20decoration%206.png" alt="" aria-hidden="true" />
           <iframe
@@ -2023,6 +2123,11 @@
       <div class="flow-inner">
         <h2>Victoria’s 1st Birthday</h2>
         <p>Thank you for being part of our joy.</p>
+
+        <figure class="ending-invitation-frame" aria-label="Foto penutup undangan Victoria">
+          <img class="ending-invitation-photo" src="./assets/images/Ending%20Undangan.jpg" alt="Foto penutup undangan ulang tahun Victoria" loading="lazy" decoding="async" />
+          <img class="ending-invitation-border" src="./assets/images/Flower%20Border%203.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        </figure>
       </div>
     </footer>
   </main>
