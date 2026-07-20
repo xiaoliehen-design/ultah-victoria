@@ -4,7 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Undangan Ulang Tahun Victoria</title>
+<title>Undangan Ulang Tahun Victoria — 22 Agustus 2026</title>
+<meta name="description" content="Undangan ulang tahun pertama Victoria Quinn Elouera, Sabtu 22 Agustus 2026 pukul 11.00 WIB di McDonald's Kelapa Gading."/>
+<meta property="og:title" content="Victoria Turns One"/>
+<meta property="og:description" content="Sabtu, 22 Agustus 2026 pukul 11.00 WIB — McDonald's Kelapa Gading."/>
+<meta property="og:type" content="website"/>
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700;800&display=swap");
 
@@ -7449,6 +7453,92 @@
   }
 </style>
 
+
+<style id="victoria-background-implementation-v2">
+  /*
+    Background implementation for the 2000 × 2000 JPG supplied with this package.
+    The fixed layer keeps the square artwork proportional on desktop and mobile,
+    while the translucent veil preserves text contrast without hiding the artwork.
+  */
+  #invitationContent {
+    position: relative !important;
+    isolation: isolate !important;
+    background: #fff8fb !important;
+    background-image: none !important;
+  }
+
+  #invitationContent > .invitation-fixed-background {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    background-image:
+      linear-gradient(180deg, rgba(255,252,254,.12), rgba(255,246,251,.18)),
+      url("./assets/images/background undangan.jpg") !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    opacity: .96;
+    filter: saturate(.94) brightness(1.025);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  #invitationContent::before {
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    background:
+      radial-gradient(ellipse at center, rgba(255,255,255,.34) 0%, rgba(255,253,254,.27) 42%, rgba(255,247,251,.18) 72%, rgba(255,244,249,.12) 100%),
+      linear-gradient(180deg, rgba(255,252,254,.10), rgba(255,247,251,.16)) !important;
+  }
+
+  #invitationContent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,.06), transparent 18%, transparent 82%, rgba(255,255,255,.06));
+  }
+
+  #invitationContent > :not(.invitation-fixed-background) {
+    position: relative;
+    z-index: 2 !important;
+  }
+
+  /* Cards remain translucent, allowing the unicorn artwork to be visible safely. */
+  #invitationContent .section-card,
+  #invitationContent .footer-card,
+  #invitationContent .rsvp-card {
+    -webkit-backdrop-filter: blur(10px) saturate(1.02);
+    backdrop-filter: blur(10px) saturate(1.02);
+  }
+
+  @media (max-width: 760px) {
+    #invitationContent > .invitation-fixed-background {
+      background-position: center top !important;
+      background-size: cover !important;
+      opacity: .94;
+    }
+
+    #invitationContent::before {
+      background:
+        radial-gradient(ellipse at center, rgba(255,255,255,.40) 0%, rgba(255,253,254,.32) 48%, rgba(255,246,250,.20) 100%),
+        linear-gradient(180deg, rgba(255,252,254,.10), rgba(255,247,251,.18)) !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #invitationContent > .invitation-fixed-background {
+      will-change: auto;
+    }
+  }
+</style>
+
 </head>
 <body>
 <!-- COVER -->
@@ -7523,6 +7613,7 @@
 </section>
 <!-- MAIN -->
 <main class="hidden" id="invitationContent">
+<div aria-hidden="true" class="invitation-fixed-background"></div>
 <div aria-hidden="true" class="particle-field">
 <span class="royal-particle p1">✦</span>
 <span class="royal-particle soft-pink p2">✧</span>
@@ -8109,11 +8200,11 @@
 <svg focusable="false" role="presentation" viewbox="0 0 24 24">
 <rect height="14" rx="2.2" width="15" x="4.5" y="5.5"></rect>
 <path d="M8 3.8v3.6M16 3.8v3.6M4.5 9.2h15"></path>
-<text class="date-number" text-anchor="middle" x="12" y="16.1">14</text>
+<text class="date-number" text-anchor="middle" x="12" y="16.1">22</text>
 </svg>
 </div>
 <h3>Hari &amp; Tanggal</h3>
-<p>Jumat,<br/>14 Agustus 2026</p>
+<p><time datetime="2026-08-22">Sabtu,<br/>22 Agustus 2026</time></p>
 </div>
 <div class="detail-card">
 <div aria-hidden="true" class="detail-icon">
@@ -8123,7 +8214,7 @@
 </svg>
 </div>
 <h3>Waktu</h3>
-<p>19.00 - 20.30 WIB</p>
+<p><time datetime="2026-08-22T11:00:00+07:00">11.00 WIB</time></p>
 </div>
 <div class="detail-card">
 <div aria-hidden="true" class="detail-icon">
@@ -8368,7 +8459,7 @@
                 Kehadiran Anda akan membuat hari spesial Victoria menjadi semakin berkesan.
               </p>
 <div class="action-row">
-<a class="btn btn-white" href="https://wa.me/6282257782781?text=Halo%2C%20saya%20ingin%20konfirmasi%20kehadiran%20untuk%20ulang%20tahun%20Victoria." rel="noopener" target="_blank">
+<a class="btn btn-white" href="https://wa.me/6282257782781?text=Halo%2C%20saya%20ingin%20konfirmasi%20kehadiran%20untuk%20ulang%20tahun%20Victoria%20pada%20Sabtu%2C%2022%20Agustus%202026%20pukul%2011.00%20WIB." rel="noopener" target="_blank">
 <svg aria-hidden="true" focusable="false" role="presentation" viewbox="0 0 24 24">
 <path d="M6 18l1.3-3.4A7 7 0 1 1 19 12a7 7 0 0 1-11.4 5.5L6 18z"></path>
 <path d="M9.4 10.2c.3-.8.8-.9 1-.9.2 0 .4 0 .6.5.2.5.6 1.4.6 1.5s.1.3 0 .5-.2.3-.4.5c-.1.1-.3.3-.1.7.2.4 1 1.6 2.3 2.2 1.6.8 1.6.5 1.9.5.3 0 1-.4 1.1-.8.1-.4.1-.8.1-.9"></path>
@@ -8690,7 +8781,7 @@
         guestName.textContent = "Kepada Yth. " + guest;
       }
 
-      const eventDate = new Date("2026-08-14T19:00:00+07:00").getTime();
+      const eventDate = new Date("2026-08-22T11:00:00+07:00").getTime();
 
       function updateCountdown() {
         const now = new Date().getTime();
