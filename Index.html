@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#f7dce8" />
   <title>Undangan Ulang Tahun Victoria — 22 Agustus 2026</title>
 <!-- Revision: Flower Decoration 3, 7, 8 + mobile details 2x2 + seamless flower motion + opening loader + single calendar button -->
-  <meta name="description" content="Undangan ulang tahun pertama Victoria Quinn Elouera, Sabtu 22 Agustus 2026 pukul 11.00 WIB di McDonald's Kelapa Gading." />
+  <meta name="description" content="Undangan ulang tahun pertama Victoria Quinn Elouera, Sabtu 22 Agustus 2026 pukul 11.00 - 13.00 WIB di McDonald's Kelapa Gading." />
   <meta property="og:title" content="Victoria Turns One" />
-  <meta property="og:description" content="Sabtu, 22 Agustus 2026 pukul 11.00 WIB — McDonald's Kelapa Gading." />
+  <meta property="og:description" content="Sabtu, 22 Agustus 2026 pukul 11.00 - 13.00 WIB — McDonald's Kelapa Gading." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -417,6 +417,37 @@
       border-color: rgba(199,160,93,.35);
       box-shadow: 0 10px 22px rgba(134,71,96,.08);
       font-weight: 700;
+    }
+
+    .detail-map-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 28px;
+      position: relative;
+      z-index: 5;
+    }
+    .detail-map-action .secondary-button {
+      min-width: min(290px, 100%);
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(8px);
+    }
+    .detail-map-action svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: 0 0 auto;
+    }
+    .unicorn-love-relocated {
+      left: max(-30px, calc(50% - 720px)) !important;
+      right: auto !important;
+      top: auto !important;
+      bottom: 8px !important;
+      width: clamp(112px, 11vw, 166px) !important;
+      opacity: .46 !important;
     }
 
     /* Detail acara berupa garis tipis, bukan card. */
@@ -873,6 +904,18 @@
 
       .action-row { align-items: stretch; }
       .action-row a { flex: 1 1 220px; }
+      .detail-map-action { margin-top: 24px; }
+      .detail-map-action .secondary-button {
+        width: min(310px, 92vw);
+        min-height: 52px;
+        font-size: 16px;
+      }
+      .unicorn-love-relocated {
+        left: -42px !important;
+        bottom: 2px !important;
+        width: 94px !important;
+        opacity: .34 !important;
+      }
       .video-showcase { width: min(360px, 84vw); }
       .video-showcase iframe { border-radius: 22px; }
       .video-flower { width: 140px; opacity: .62; }
@@ -1858,7 +1901,7 @@
           <article class="event-detail">
             <span class="detail-symbol" aria-hidden="true">◷</span>
             <h3>Waktu</h3>
-            <p><time datetime="2026-08-22T11:00:00+07:00">11.00 WIB</time></p>
+            <p><time datetime="2026-08-22T11:00:00+07:00">11.00 - 13.00 WIB</time></p>
           </article>
           <article class="event-detail">
             <span class="detail-symbol" aria-hidden="true">⌖</span>
@@ -1868,30 +1911,26 @@
           <article class="event-detail">
             <span class="detail-symbol" aria-hidden="true">✧</span>
             <h3>Dress Code</h3>
-            <p>Pink / Red / White<br />Soft &amp; Elegant</p>
+            <p>Pink / Blue</p>
           </article>
         </div>
+
+        <div class="detail-map-action">
+          <a class="secondary-button" href="https://maps.google.com/?q=McDonald%27s+Kelapa+Gading" target="_blank" rel="noopener noreferrer" aria-label="Buka lokasi McDonald's Kelapa Gading di Google Maps">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"></path>
+              <circle cx="12" cy="10" r="2.2"></circle>
+            </svg>
+            <span>Buka Google Maps</span>
+          </a>
+        </div>
       </div>
-    </section>
 
-    <img class="floral-divider divider-3" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
-
-    <section class="flow-section compact reveal has-unicorn">
-      <div class="unicorn-decoration unicorn-love" aria-hidden="true">
+      <div class="unicorn-decoration unicorn-love unicorn-love-relocated" aria-hidden="true">
         <img src="./assets/images/Unicorn%205.png" alt="" loading="lazy" decoding="async" />
       </div>
-      <img class="edge-flower left" src="./assets/images/Flower%20decoration%202.png" alt="" aria-hidden="true" />
-      <img class="edge-flower right" src="./assets/images/Flower%20decoration%206.png" alt="" aria-hidden="true" />
-      <div class="flow-inner">
-        <span class="eyebrow">With Love</span>
-        <h2 class="section-title">Satu Tahun Penuh Cinta</h2>
-        <p class="love-copy">
-          Satu tahun penuh cinta, tawa, dan doa terbaik telah menemani perjalanan kecil Victoria.
-          Kehadiran Bapak/Ibu/Saudara/i akan menjadi kebahagiaan yang sangat berarti bagi kami
-          dalam merayakan hari istimewanya.
-        </p>
-      </div>
     </section>
+
 
     <img class="floral-divider divider-7" src="./assets/images/Flower%20decoration%207.png" alt="" aria-hidden="true" />
 
@@ -1907,7 +1946,6 @@
       <div class="flow-inner">
         <span class="eyebrow">Victoria in Motion</span>
         <h2 class="section-title">A Little Magical Moment</h2>
-        <p class="section-copy">Sebuah video singkat yang merekam keceriaan Victoria.</p>
         <div class="video-showcase">
           <img class="video-flower top" src="./assets/images/Flower%20decoration%206.png" alt="" aria-hidden="true" />
           <iframe
@@ -1975,9 +2013,7 @@
         </p>
         <div class="action-row">
           <a class="primary-button" href="https://wa.me/6282257782781?text=Halo%2C%20saya%20ingin%20konfirmasi%20kehadiran%20untuk%20ulang%20tahun%20Victoria%20pada%2022%20Agustus%202026." target="_blank" rel="noopener noreferrer">Konfirmasi via WhatsApp</a>
-          <a class="secondary-button" href="https://maps.google.com/?q=McDonald%27s+Kelapa+Gading" target="_blank" rel="noopener noreferrer">Buka Google Maps</a>
         </div>
-        <p class="rsvp-note">Contact: 0822 5778 2781</p>
       </div>
     </section>
 
