@@ -1453,6 +1453,187 @@
       .calendar-button { width: min(310px, 100%); padding-inline: 20px; }
     }
 
+
+
+    /* =========================================================
+       FINAL SPACE-EFFICIENT UNICORN + COMPACT 3×3 GALLERY
+       Unicorns float over decorative flowers without reserving
+       vertical space. Important content remains on a higher layer.
+    ========================================================= */
+
+    /* No dedicated lower space is reserved for any unicorn. */
+    .flow-section.has-unicorn {
+      padding-bottom: clamp(68px, 9vw, 118px) !important;
+    }
+    .flow-section.compact.has-unicorn {
+      padding-bottom: clamp(54px, 7vw, 84px) !important;
+    }
+
+    /* Decorative stacking: flowers first, unicorns second, content last. */
+    .edge-flower { z-index: 1; }
+    .unicorn-decoration {
+      z-index: 2;
+      width: clamp(132px, 13vw, 205px);
+      opacity: .94;
+    }
+    .flow-inner {
+      position: relative;
+      z-index: 4;
+    }
+
+    /* Keep every unicorn close to an outer edge so it may overlap flowers,
+       but not the centered text, countdown, video, or gallery content. */
+    .unicorn-opening {
+      right: max(-26px, calc(50% - 710px));
+      top: 18%;
+      bottom: auto;
+    }
+    .unicorn-countdown {
+      left: max(-24px, calc(50% - 710px));
+      top: 54%;
+      bottom: auto;
+    }
+    .unicorn-details {
+      right: max(-26px, calc(50% - 710px));
+      top: 48%;
+      bottom: auto;
+    }
+    .unicorn-love {
+      left: max(-24px, calc(50% - 710px));
+      top: 42%;
+      bottom: auto;
+    }
+    .unicorn-video {
+      right: max(-26px, calc(50% - 710px));
+      top: 44%;
+      bottom: auto;
+    }
+    .unicorn-moments {
+      left: max(-22px, calc(50% - 710px));
+      top: 42%;
+      bottom: auto;
+      width: clamp(128px, 12vw, 190px);
+    }
+
+    /* Plain, tightly packed photo grid. */
+    .moments-grid {
+      width: min(1040px, 100%);
+      margin-top: clamp(24px, 3vw, 34px);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(4px, .7vw, 9px);
+    }
+    .moment-frame {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: clamp(8px, 1.1vw, 14px);
+      background: #fff;
+      box-shadow: 0 8px 18px rgba(121,60,88,.09);
+    }
+    .moment-frame:hover {
+      transform: translateY(-3px);
+      filter: drop-shadow(0 11px 15px rgba(121,60,88,.12));
+    }
+    .moment-photo {
+      position: static !important;
+      inset: auto !important;
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      object-position: center;
+      border-radius: inherit;
+      z-index: auto;
+      transition: transform .35s ease;
+    }
+    .moment-frame:hover .moment-photo { transform: scale(1.025); }
+    .moment-border { display: none !important; }
+
+    @media (max-width: 1240px) {
+      /* On tablets, move unicorns to a top outer corner instead of
+         reserving space below the section. */
+      .unicorn-decoration:not(.unicorn-cover) {
+        top: 20px;
+        bottom: auto;
+        width: clamp(118px, 17vw, 166px);
+        opacity: .84;
+      }
+      .unicorn-opening,
+      .unicorn-details,
+      .unicorn-video {
+        right: clamp(-48px, -3.6vw, -28px);
+        left: auto;
+      }
+      .unicorn-countdown,
+      .unicorn-love,
+      .unicorn-moments {
+        left: clamp(-48px, -3.6vw, -28px);
+        right: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .flow-section.has-unicorn {
+        padding-bottom: clamp(68px, 9vw, 118px) !important;
+      }
+      .flow-section.compact.has-unicorn {
+        padding-bottom: clamp(54px, 7vw, 84px) !important;
+      }
+
+      .unicorn-decoration:not(.unicorn-cover) {
+        width: clamp(98px, 29vw, 124px);
+        opacity: .66;
+        filter: drop-shadow(0 10px 18px rgba(109,55,82,.12));
+      }
+      .unicorn-decoration:not(.unicorn-cover)::before { opacity: .54; }
+
+      .unicorn-opening,
+      .unicorn-details,
+      .unicorn-video {
+        right: clamp(-38px, -9vw, -26px);
+      }
+      .unicorn-countdown,
+      .unicorn-love,
+      .unicorn-moments {
+        left: clamp(-38px, -9vw, -26px);
+      }
+
+      .unicorn-opening,
+      .unicorn-countdown,
+      .unicorn-details,
+      .unicorn-love,
+      .unicorn-video,
+      .unicorn-moments { top: 14px; }
+
+      .moments-grid {
+        gap: 3px;
+        margin-top: 24px;
+      }
+      .moment-frame {
+        border-radius: 7px;
+        box-shadow: 0 5px 11px rgba(121,60,88,.08);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .flow-section.has-unicorn,
+      .flow-section.compact.has-unicorn {
+        padding-bottom: 64px !important;
+      }
+      .unicorn-decoration:not(.unicorn-cover) {
+        width: 102px;
+        opacity: .60;
+      }
+      .unicorn-opening,
+      .unicorn-details,
+      .unicorn-video { right: -32px; }
+      .unicorn-countdown,
+      .unicorn-love,
+      .unicorn-moments { left: -32px; }
+
+      .moments-grid { gap: 2px; }
+      .moment-frame { border-radius: 5px; }
+    }
+
   </style>
 </head>
 <body>
@@ -1654,18 +1835,18 @@
       <div class="flow-inner">
         <span class="eyebrow">Captured with Love</span>
         <h2 class="section-title">Sweet Moments</h2>
-        <p class="section-copy">Sembilan kenangan manis Victoria dalam susunan 3 × 3.</p>
+        <p class="section-copy">Sembilan kenangan manis Victoria dalam galeri 3 × 3 yang ringkas.</p>
 
         <div class="moments-grid" aria-label="Galeri sembilan foto Victoria">
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment1.jpg" alt="Foto Victoria 1" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment2.jpg" alt="Foto Victoria 2" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment3.jpg" alt="Foto Victoria 3" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment4.jpg" alt="Foto Victoria 4" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment5.jpg" alt="Foto Victoria 5" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment6.jpg" alt="Foto Victoria 6" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment7.jpg" alt="Foto Victoria 7" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment8.jpg" alt="Foto Victoria 8" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
-          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment9.jpg" alt="Foto Victoria 9" /><img class="moment-border" src="./assets/images/Flower%20Border%202.png" alt="" aria-hidden="true" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment1.jpg" alt="Foto Victoria 1" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment2.jpg" alt="Foto Victoria 2" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment3.jpg" alt="Foto Victoria 3" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment4.jpg" alt="Foto Victoria 4" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment5.jpg" alt="Foto Victoria 5" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment6.jpg" alt="Foto Victoria 6" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment7.jpg" alt="Foto Victoria 7" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment8.jpg" alt="Foto Victoria 8" /></button>
+          <button class="moment-frame" type="button"><img class="moment-photo" src="./assets/images/victoria-moment9.jpg" alt="Foto Victoria 9" /></button>
         </div>
       </div>
     </section>
