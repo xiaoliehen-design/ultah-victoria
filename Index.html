@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f7dce8" />
   <title>Undangan Ulang Tahun Victoria — 22 Agustus 2026</title>
+<!-- Revision: Flower Decoration 3, 7, 8 + mobile details 2x2 + seamless flower motion -->
   <meta name="description" content="Undangan ulang tahun pertama Victoria Quinn Elouera, Sabtu 22 Agustus 2026 pukul 11.00 WIB di McDonald's Kelapa Gading." />
   <meta property="og:title" content="Victoria Turns One" />
   <meta property="og:description" content="Sabtu, 22 Agustus 2026 pukul 11.00 WIB — McDonald's Kelapa Gading." />
@@ -94,6 +95,7 @@
       opacity: 0;
       transform: translateY(-30px) scale(.96);
     }
+    .cover.is-opening .cover-flower { animation-play-state: paused; }
     .cover.is-opening .cover-flower.top-right { transform: translate(36px,-34px) rotate(11deg) scale(1.08); }
     .cover.is-opening .cover-flower.bottom-left { transform: translate(-36px,34px) rotate(-13deg) scale(1.08); }
     .cover-copy {
@@ -160,12 +162,18 @@
     .secondary-button:hover { transform: translateY(-2px); }
 
     .cover-flower {
+      --cover-flower-x: -12px;
+      --cover-flower-y: 10px;
+      --cover-flower-delay: 0s;
       position: absolute;
       z-index: 2;
       pointer-events: none;
       object-fit: contain;
       filter: drop-shadow(0 10px 20px rgba(72, 29, 49, .16));
       transition: transform .9s cubic-bezier(.22,.72,.18,1), opacity .65s ease;
+      will-change: translate;
+      animation: coverFlowerSeamless 12s ease-in-out infinite;
+      animation-delay: var(--cover-flower-delay);
     }
     .cover-flower.top-right {
       width: clamp(180px, 29vw, 430px);
@@ -173,6 +181,8 @@
       top: -8%;
       transform: rotate(4deg);
       opacity: .88;
+      --cover-flower-x: -15px;
+      --cover-flower-y: 12px;
     }
     .cover-flower.bottom-left {
       width: clamp(180px, 28vw, 410px);
@@ -180,6 +190,9 @@
       bottom: -8%;
       transform: rotate(-6deg);
       opacity: .88;
+      --cover-flower-x: 15px;
+      --cover-flower-y: -11px;
+      --cover-flower-delay: -5.8s;
     }
 
     /* Latar utama: gambar square ditampilkan selebar viewport, bukan cover/zoom. */
@@ -254,6 +267,11 @@
 
     /* Hiasan sisi tidak menjadi container/shape. */
     .edge-flower {
+      --flower-flip: 1;
+      --flower-rotate: 0deg;
+      --flower-drift-x: 12px;
+      --flower-drift-y: -12px;
+      --flower-delay: 0s;
       position: absolute;
       z-index: 1;
       width: clamp(150px, 21vw, 330px);
@@ -262,20 +280,48 @@
       pointer-events: none;
       opacity: .66;
       filter: drop-shadow(0 14px 28px rgba(133, 69, 96, .08));
+      transform-origin: 50% 62%;
+      will-change: transform;
+      animation: edgeFlowerSeamless 11s ease-in-out infinite;
+      animation-delay: var(--flower-delay);
     }
-    .edge-flower.left { left: clamp(-150px, -8vw, -55px); top: 10%; }
-    .edge-flower.right { right: clamp(-150px, -8vw, -55px); bottom: 4%; }
-    .edge-flower.flip { transform: scaleX(-1); }
+    .edge-flower.left {
+      left: clamp(-150px, -8vw, -55px);
+      top: 10%;
+      --flower-drift-x: 15px;
+      --flower-drift-y: -13px;
+    }
+    .edge-flower.right {
+      right: clamp(-150px, -8vw, -55px);
+      bottom: 4%;
+      --flower-drift-x: -15px;
+      --flower-drift-y: -10px;
+      --flower-delay: -4.2s;
+    }
+    .edge-flower.flip { --flower-flip: -1; }
 
     .floral-divider {
       position: relative;
       z-index: 3;
-      width: min(880px, 92vw);
+      width: min(940px, 94vw);
       height: clamp(70px, 11vw, 150px);
       margin: clamp(-28px, -3vw, -8px) auto;
       object-fit: contain;
       pointer-events: none;
-      opacity: .88;
+      opacity: .90;
+      filter: drop-shadow(0 10px 18px rgba(121,60,88,.07));
+    }
+    .floral-divider.divider-7 {
+      width: min(1040px, 96vw);
+      height: clamp(68px, 10vw, 136px);
+      opacity: .84;
+    }
+    .floral-divider.divider-8 {
+      width: min(1080px, 98vw);
+      height: clamp(96px, 15vw, 190px);
+      margin-top: clamp(-36px, -4vw, -12px);
+      margin-bottom: clamp(-38px, -4vw, -14px);
+      opacity: .94;
     }
 
     /* Foto cover2 lingkaran di dalam Flower Border 1. */
@@ -702,15 +748,34 @@
       box-shadow: 0 28px 54px rgba(111,55,82,.18), 0 0 42px rgba(255,232,245,.60);
     }
     .video-flower {
+      --video-flower-rotate: 0deg;
+      --video-flower-x: 10px;
+      --video-flower-y: -9px;
+      --video-flower-delay: 0s;
       position: absolute;
       z-index: 2;
       width: clamp(120px, 36vw, 200px);
       pointer-events: none;
       filter: drop-shadow(0 12px 18px rgba(121,60,88,.10));
       opacity: .78;
+      transform-origin: center;
+      will-change: transform;
+      animation: videoFlowerSeamless 9.6s ease-in-out infinite;
+      animation-delay: var(--video-flower-delay);
     }
-    .video-flower.top { right: -34%; top: -6%; transform: rotate(6deg); }
-    .video-flower.bottom { left: -34%; bottom: -6%; transform: rotate(184deg); }
+    .video-flower.top {
+      right: -34%;
+      top: -6%;
+      --video-flower-rotate: 6deg;
+    }
+    .video-flower.bottom {
+      left: -34%;
+      bottom: -6%;
+      --video-flower-rotate: 184deg;
+      --video-flower-x: -11px;
+      --video-flower-y: 8px;
+      --video-flower-delay: -4.8s;
+    }
 
     .reveal {
       opacity: 0;
@@ -739,6 +804,28 @@
       50% { opacity: 1; transform: scale(1.25) rotate(12deg); }
     }
 
+    /* Gerakan halus khusus bunga dekoratif. Border foto dan pembatas tetap stabil. */
+    @keyframes coverFlowerSeamless {
+      0%, 100% { translate: 0 0; }
+      50% { translate: var(--cover-flower-x) var(--cover-flower-y); }
+    }
+    @keyframes edgeFlowerSeamless {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(var(--flower-rotate)) scaleX(var(--flower-flip));
+      }
+      50% {
+        transform: translate3d(var(--flower-drift-x), var(--flower-drift-y), 0) rotate(calc(var(--flower-rotate) + 2.2deg)) scaleX(var(--flower-flip));
+      }
+    }
+    @keyframes videoFlowerSeamless {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) rotate(var(--video-flower-rotate)) scale(1);
+      }
+      50% {
+        transform: translate3d(var(--video-flower-x), var(--video-flower-y), 0) rotate(calc(var(--video-flower-rotate) + 2deg)) scale(1.025);
+      }
+    }
+
     @media (max-width: 760px) {
       .cover-photo { object-position: center top; }
       .cover-copy { padding-bottom: max(40px, env(safe-area-inset-bottom)); }
@@ -762,10 +849,24 @@
       .time-unit { padding-inline: 4px; }
       .time-label { font-size: 9px; letter-spacing: .11em; }
 
-      .event-details { grid-template-columns: 1fr; }
-      .event-detail { min-height: 145px; padding: 24px 16px; border-bottom: 1px solid rgba(199,160,93,.27); }
-      .event-detail:last-child { border-bottom: 0; }
-      .event-detail:nth-child(odd)::after { display: none; }
+      .event-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .event-detail {
+        min-height: 138px;
+        padding: 20px 10px;
+        border-bottom: 0;
+      }
+      .event-detail:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(199,160,93,.28);
+      }
+      .event-detail:nth-child(odd)::after {
+        display: block;
+        top: 14%;
+        height: 72%;
+      }
+      .event-detail h3 { font-size: clamp(20px, 6vw, 25px); }
+      .event-detail p { font-size: clamp(12px, 3.5vw, 15px); }
 
       .moments-grid { gap: 4px; width: 100%; }
       .moment-photo { inset: 15%; width: 70%; height: 70%; }
@@ -786,6 +887,16 @@
       .moments-grid { gap: 1px; }
       .moment-photo { inset: 15.5%; width: 69%; height: 69%; }
       .wish-form { gap: 12px; }
+      .event-detail {
+        min-height: 126px;
+        padding: 17px 7px;
+        gap: 6px;
+      }
+      .detail-symbol { font-size: 20px; }
+      .event-detail h3 { font-size: clamp(18px, 5.7vw, 22px); }
+      .event-detail p { font-size: 12px; line-height: 1.48; }
+      .floral-divider.divider-7 { height: 82px; }
+      .floral-divider.divider-8 { height: 116px; }
     }
 
 
@@ -1055,7 +1166,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-7" src="./assets/images/Flower%20decoration%207.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal has-unicorn" id="countdownSection">
       <div class="unicorn-decoration unicorn-countdown" aria-hidden="true">
@@ -1078,7 +1189,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-8" src="./assets/images/Flower%20decoration%208.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal has-unicorn">
       <div class="unicorn-decoration unicorn-details" aria-hidden="true">
@@ -1116,7 +1227,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-3" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal has-unicorn">
       <div class="unicorn-decoration unicorn-love" aria-hidden="true">
@@ -1135,7 +1246,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-7" src="./assets/images/Flower%20decoration%207.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal video-section has-unicorn" id="victoriaVideoSection">
       <div class="unicorn-decoration unicorn-video" aria-hidden="true">
@@ -1161,7 +1272,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-8" src="./assets/images/Flower%20decoration%208.png" alt="" aria-hidden="true" />
 
     <section class="flow-section reveal has-unicorn" id="momentsSection">
       <div class="unicorn-decoration unicorn-moments" aria-hidden="true">
@@ -1188,7 +1299,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-3" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal">
       <img class="edge-flower left" src="./assets/images/Flower%20decoration%201.png" alt="" aria-hidden="true" />
@@ -1215,7 +1326,7 @@
       </div>
     </section>
 
-    <img class="floral-divider" src="./assets/images/Flower%20decoration%203.png" alt="" aria-hidden="true" />
+    <img class="floral-divider divider-7" src="./assets/images/Flower%20decoration%207.png" alt="" aria-hidden="true" />
 
     <section class="flow-section compact reveal">
       <img class="edge-flower left" src="./assets/images/Flower%20decoration%206.png" alt="" aria-hidden="true" />
