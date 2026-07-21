@@ -119,10 +119,18 @@
     .cover h1 {
       margin: 0;
       font-family: var(--title);
-      font-size: clamp(58px, 10vw, 112px);
-      line-height: .82;
+      font-size: clamp(48px, 8.6vw, 102px);
+      line-height: .90;
       letter-spacing: -.045em;
       font-weight: 700;
+    }
+    .cover h1 .cover-name-line {
+      display: block;
+    }
+    .cover h1 .cover-name-line:last-child {
+      font-size: .78em;
+      margin-top: .10em;
+      letter-spacing: -.035em;
     }
     .cover-subtitle {
       margin: 22px auto 26px;
@@ -1902,6 +1910,19 @@
       }
     }
 
+
+    @media (max-width: 560px) {
+      .cover h1 {
+        font-size: clamp(45px, 13.2vw, 58px);
+        line-height: .92;
+      }
+      .cover h1 .cover-name-line:last-child {
+        font-size: .66em;
+        margin-top: .16em;
+        letter-spacing: -.025em;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1916,7 +1937,7 @@
 
     <div class="cover-copy">
       <p class="cover-kicker">Birthday Invitation</p>
-      <h1>Victoria<br />Turns One</h1>
+      <h1><span class="cover-name-line">Victoria</span><span class="cover-name-line">Quinn Elouera</span></h1>
       <p class="cover-subtitle">You are invited to celebrate the first birthday of our little princess.</p>
       <p class="guest-name" id="guestName"></p>
       <button class="open-button" id="openInvitation" type="button">Buka Undangan</button>
